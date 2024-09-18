@@ -1,16 +1,40 @@
+variable "aws_cli_profile" {
+  description = "Profile for AWS cli"
+  type        = string
+  default     = "internalaccount"
+}
+
 variable "aws_region" {
   description = "AWS region."
   type        = string
+  default     = "us-east-1"
 }
 
-variable "vpc_id" {
-  description = "The VPC for security groups of the action runners."
+variable "vpc_name" {
+  description = "Name of the VPC for security groups of the action runners."
   type        = string
+  default     = "govcloud-runner-vpc"
 }
 
-variable "subnet_ids" {
-  description = "List of subnets in which the action runner instances will be launched. The subnets need to exist in the configured VPC (`vpc_id`), and must reside in different availability zones (see https://github.com/philips-labs/terraform-aws-github-runner/issues/2904)"
-  type        = list(string)
+variable "customer" {
+  description = "Name of the 'customer' for action runners."
+  type        = string
+  default     = "govcloud-runner"
+}
+
+variable "vpc_cidr" {
+  description = "Cidr block for action runners."
+  type        = string
+  default     = "10.100.0.0/16"
+}
+
+variable "public_cidrs" {
+  description = "Map of public cidrs that will be used for the github runners"
+  type        = map(string)
+  default     = {
+    us-east-1a = "10.100.2.0/24"
+    us-east-1b = "10.100.4.0/24"
+  }
 }
 
 variable "tags" {
@@ -22,23 +46,22 @@ variable "tags" {
 variable "prefix" {
   description = "The prefix used for naming resources"
   type        = string
-  default     = "github-actions"
+  default     = "ne-govcloud-runners"
 }
 
 variable "enable_organization_runners" {
   description = "Register runners to organization, instead of repo level"
   type        = bool
-  default     = false
+  default     = true
 }
 
-variable "github_app" {
-  description = "GitHub app parameters, see your github app. Ensure the key is the base64-encoded `.pem` file (the output of `base64 app.private-key.pem`, not the content of `private-key.pem`)."
-  type = object({
-    key_base64     = string
-    id             = string
-    webhook_secret = string
-  })
-}
+#variable "github_app" {
+#  description = "GitHub app parameters, see your github app. Ensure the key is the base64-encoded `.pem` file (the output of `base64 app.private-key.pem`, not the content of `private-key.pem`)."
+#  type = object({
+#    key_base64     = string
+#    webhook_secret = string
+#  })
+#}
 
 variable "scale_down_schedule_expression" {
   description = "Scheduler expression to check every x for scale down."
@@ -67,7 +90,7 @@ variable "runner_extra_labels" {
 variable "runner_group_name" {
   description = "Name of the runner group."
   type        = string
-  default     = "Default"
+  default     = "ne-govcloud-runners"
 }
 
 variable "scale_up_reserved_concurrent_executions" {
@@ -218,7 +241,7 @@ variable "runner_run_as" {
 variable "runners_maximum_count" {
   description = "The maximum number of runners that will be created."
   type        = number
-  default     = 3
+  default     = 15
 }
 
 variable "kms_key_arn" {
@@ -289,7 +312,7 @@ variable "enable_ssm_on_runners" {
 variable "logging_retention_in_days" {
   description = "Specifies the number of days you want to retain log events for the lambda log group. Possible values are: 0, 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653."
   type        = number
-  default     = 180
+  default     = 30
 }
 
 variable "logging_kms_key_id" {
@@ -348,13 +371,13 @@ variable "ami_kms_key_arn" {
 variable "lambda_s3_bucket" {
   description = "S3 bucket from which to specify lambda functions. This is an alternative to providing local files directly."
   type        = string
-  default     = null
+  default     = "github-runners-lambdas"
 }
 
 variable "syncer_lambda_s3_key" {
   description = "S3 key for syncer lambda function. Required if using an S3 bucket to specify lambdas."
   type        = string
-  default     = null
+  default     = "runner-binaries-syncer.zip"
 }
 
 variable "syncer_lambda_s3_object_version" {
@@ -366,7 +389,7 @@ variable "syncer_lambda_s3_object_version" {
 variable "webhook_lambda_s3_key" {
   description = "S3 key for webhook lambda function. Required if using S3 bucket to specify lambdas."
   type        = string
-  default     = null
+  default     = "webhook.zip"
 }
 
 variable "webhook_lambda_s3_object_version" {
@@ -387,7 +410,7 @@ variable "webhook_lambda_apigateway_access_log_settings" {
 variable "runners_lambda_s3_key" {
   description = "S3 key for runners lambda function. Required if using S3 bucket to specify lambdas."
   type        = string
-  default     = null
+  default     = "runners.zip"
 }
 
 variable "runners_lambda_s3_object_version" {
@@ -399,7 +422,7 @@ variable "runners_lambda_s3_object_version" {
 variable "create_service_linked_role_spot" {
   description = "(optional) create the service linked role for spot instances that is required by the scale-up lambda."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "runner_iam_role_managed_policy_arns" {
@@ -496,7 +519,8 @@ variable "instance_max_spot_price" {
 variable "instance_types" {
   description = "List of instance types for the action runner. Defaults are based on runner_os (al2023 for linux and Windows Server Core for win)."
   type        = list(string)
-  default     = ["m5.large", "c5.large"]
+  #default     = ["m5.large", "c5.large"]
+  default     = ["t3.medium"]
 }
 
 variable "repository_white_list" {
