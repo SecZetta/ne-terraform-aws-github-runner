@@ -29,7 +29,7 @@ terraform {
     key            = "main.tfstate"
     region         = "us-east-1"
     dynamodb_table = "tf-lock"
-    shared_credentials_file = "~/.aws/credentials"
+    #shared_credentials_files = "~/.aws/credentials"
     profile        = "internalaccount"
   }
 
@@ -65,7 +65,7 @@ terraform {
 ### Providers ###
 provider "aws" {
   region     = var.aws_region
-  shared_credentials_files = ["~/.aws/credentials"]
+  #shared_credentials_files = ["~/.aws/credentials"]
   profile                 = var.aws_cli_profile
 }
 

@@ -112,15 +112,15 @@ resource "aws_sqs_queue" "queued_builds_dlq" {
   tags                              = var.tags
 }
 
-data "aws_ssm_parameter" "tf_key_base64" {
+data "aws_ssm_parameter" "key_base64" {
   name = "/Terraform/runnerapp/github_app_key_base64"
 }
 
-data "aws_ssm_parameter" "tf_app_id" {
+data "aws_ssm_parameter" "app_id" {
   name = "/Terraform/runnerapp/github_app_id"
 }
 
-data "aws_ssm_parameter" "tf_webhook_secret" {
+data "aws_ssm_parameter" "webhook_secret" {
   name = "/Terraform/runnerapp/webhook_secret"
 }
 
@@ -130,9 +130,9 @@ module "ssm" {
   kms_key_arn = var.kms_key_arn
   path_prefix = "${local.ssm_root_path}/${var.ssm_paths.app}"
   github_app  = {
-    key_base64 = data.aws_ssm_parameter.tf_key_base64.value
-    id = data.aws_ssm_parameter.tf_app_id.value
-    webhook_secret = data.aws_ssm_parameter.tf_webhook_secret.value
+    key_base64 = data.aws_ssm_parameter.key_base64.value
+    id = data.aws_ssm_parameter.app_id.value
+    webhook_secret = data.aws_ssm_parameter.webhook_secret.value
   }
   tags        = local.tags
 }

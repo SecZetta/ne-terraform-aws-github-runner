@@ -64,7 +64,7 @@ variable "scale_down_schedule_expression" {
 variable "minimum_running_time_in_minutes" {
   description = "The time an ec2 action runner should be running at minimum before terminated, if not busy."
   type        = number
-  default     = null
+  default     = 4
 }
 
 variable "runner_boot_time_in_minutes" {
@@ -76,7 +76,7 @@ variable "runner_boot_time_in_minutes" {
 variable "runner_extra_labels" {
   description = "Extra (custom) labels for the runners (GitHub). Labels checks on the webhook can be enforced by setting `enable_runner_workflow_job_labels_check_all`. GitHub read-only labels should not be provided."
   type        = list(string)
-  default     = []
+  default     = ["ne-app-runners"]
 }
 
 variable "runner_group_name" {
@@ -298,7 +298,7 @@ variable "idle_config" {
 variable "enable_ssm_on_runners" {
   description = "Enable to allow access to the runner instances for debugging purposes via SSM. Note that this adds additional permissions to the runner instances."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "logging_retention_in_days" {
@@ -593,7 +593,9 @@ variable "matcher_config_parameter_store_tier" {
 variable "runner_ec2_tags" {
   description = "Map of tags that will be added to the launch template instance tag specifications."
   type        = map(string)
-  default     = {}
+  default     = {
+    "Name"    = "ne-app-runners"
+  }
 }
 
 variable "runner_metadata_options" {
@@ -610,7 +612,7 @@ variable "runner_metadata_options" {
 variable "enable_ephemeral_runners" {
   description = "Enable ephemeral runners, runners will only be used once."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enable_job_queued_check" {
