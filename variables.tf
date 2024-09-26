@@ -64,7 +64,7 @@ variable "scale_down_schedule_expression" {
 variable "minimum_running_time_in_minutes" {
   description = "The time an ec2 action runner should be running at minimum before terminated, if not busy."
   type        = number
-  default     = 4
+  default     = 10
 }
 
 variable "runner_boot_time_in_minutes" {
@@ -178,7 +178,7 @@ variable "runner_binaries_s3_versioning" {
 variable "runner_binaries_s3_logging_bucket" {
   description = "Bucket for action runner distribution bucket access logging."
   type        = string
-  default     = null
+  default     = "runnerapp-dist-logs"
 
   # Make sure the bucket name only contains legal characters
   validation {
@@ -190,7 +190,7 @@ variable "runner_binaries_s3_logging_bucket" {
 variable "runner_binaries_s3_logging_bucket_prefix" {
   description = "Bucket prefix for action runner distribution bucket access logging."
   type        = string
-  default     = null
+  default     = "runnerbinaries-/"
 
   # Make sure the bucket prefix only contains legal characters
   validation {
@@ -560,7 +560,7 @@ variable "runner_egress_rules" {
 variable "log_level" {
   description = "Logging level for lambda logging. Valid values are  'silly', 'trace', 'debug', 'info', 'warn', 'error', 'fatal'."
   type        = string
-  default     = "info"
+  default     = "debug"
   validation {
     condition = anytrue([
       var.log_level == "silly",
@@ -618,7 +618,7 @@ variable "enable_ephemeral_runners" {
 variable "enable_job_queued_check" {
   description = "Only scale if the job event received by the scale up lambda is in the queued state. By default enabled for non ephemeral runners and disabled for ephemeral. Set this variable to overwrite the default behavior."
   type        = bool
-  default     = null
+  default     = true
 }
 
 variable "enable_managed_runner_security_group" {
@@ -798,7 +798,7 @@ variable "queue_encryption" {
 variable "enable_user_data_debug_logging_runner" {
   description = "Option to enable debug logging for user-data, this logs all secrets as well."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "ssm_paths" {
@@ -944,7 +944,7 @@ variable "job_retry" {
   EOF
 
   type = object({
-    enable             = optional(bool, false)
+    enable             = optional(bool, true)
     delay_in_seconds   = optional(number, 300)
     delay_backoff      = optional(number, 2)
     lambda_memory_size = optional(number, 256)
