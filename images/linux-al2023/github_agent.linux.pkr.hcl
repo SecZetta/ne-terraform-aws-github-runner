@@ -1,7 +1,7 @@
 packer {
   required_plugins {
     amazon = {
-      version = ">= 0.0.2"
+      version = ">= 1.2.8""
       source  = "github.com/hashicorp/amazon"
     }
   }
@@ -9,31 +9,36 @@ packer {
 
 variable "runner_version" {
   description = "The version (no v prefix) of the runner software to install https://github.com/actions/runner/releases. The latest release will be fetched from GitHub if not provided."
-  default     = null
+  default     = "2.319.1"
 }
 
 variable "region" {
   description = "The region to build the image in"
   type        = string
-  default     = "eu-west-1"
+  default     = "us-east-1"
+}
+
+variable "availability_zone_names" {
+  type    = list(string)
+  default = ["us-east-1a", "us-east-1b"]
 }
 
 variable "security_group_id" {
   description = "The ID of the security group Packer will associate with the builder to enable access"
   type        = string
-  default     = null
+  default     = "sg-088583f13a0bb5a8e"
 }
 
 variable "subnet_id" {
   description = "If using VPC, the ID of the subnet, such as subnet-12345def, where Packer will launch the EC2 instance. This field is required if you are using an non-default VPC"
   type        = string
-  default     = null
+  default     = "subnet-07123a4d282b85607"
 }
 
 variable "associate_public_ip_address" {
   description = "If using a non-default VPC, there is no public IP address assigned to the EC2 instance. If you specified a public subnet, you probably want to set this to true. Otherwise the EC2 instance won't have access to the internet"
-  type        = string
-  default     = null
+  type        = bool
+  default     = true
 }
 
 variable "instance_type" {
@@ -62,7 +67,7 @@ variable "global_tags" {
 variable "ami_tags" {
   description = "Tags to apply to the AMI"
   type        = map(string)
-  default     = {}
+  default     = { name = "ne-app-runners" }
 }
 
 variable "snapshot_tags" {

@@ -257,7 +257,7 @@ variable "enable_runner_on_demand_failover_for_errors" {
 variable "enable_userdata" {
   description = "Should the userdata script be enabled for the runner. Set this to false if you are using your own prebuilt AMI."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "userdata_template" {
@@ -334,7 +334,7 @@ variable "block_device_mappings" {
 variable "ami_filter" {
   description = "Map of lists used to create the AMI filter for the action runner AMI."
   type        = map(list(string))
-  default     = { state = ["available"] }
+  default     = { name = ["github-runner-al2023-x86_64-2024*"], state = ["available"] }
   validation {
     # check the availability of the AMI
     condition     = contains(keys(var.ami_filter), "state")
@@ -345,7 +345,7 @@ variable "ami_filter" {
 variable "ami_owners" {
   description = "The list of owners used to select the AMI of action runner instances."
   type        = list(string)
-  default     = ["amazon"]
+  default     = ["364787233652"]
 }
 
 variable "ami_id_ssm_parameter_name" {
@@ -512,7 +512,7 @@ variable "instance_types" {
   description = "List of instance types for the action runner. Defaults are based on runner_os (al2023 for linux and Windows Server Core for win)."
   type        = list(string)
   #default     = ["m5.large", "c5.large"]
-  default     = ["t3.medium"]
+  default     = ["m3.medium"]
 }
 
 variable "repository_white_list" {

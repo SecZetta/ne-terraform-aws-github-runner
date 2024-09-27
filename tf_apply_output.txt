@@ -1,0 +1,988 @@
+[0m[1mrandom_string.random: Refreshing state... [id=uethrgrlaib6j2wifr85rt52][0m
+[0m[1mdata.aws_ssm_parameter.tf_key_base64: Reading...[0m[0m
+[0m[1mmodule.runner_binaries[0].data.aws_iam_policy_document.lambda_assume_role_policy: Reading...[0m[0m
+[0m[1mmodule.runners.data.aws_ami.runner: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.deny_unsecure_transport: Reading...[0m[0m
+[0m[1mmodule.runners.aws_cloudwatch_log_group.gh_runners[0]: Refreshing state... [id=/github-self-hosted-runners/ne-govcloud-runners/messages][0m
+[0m[1mmodule.runners.aws_cloudwatch_log_group.gh_runners[1]: Refreshing state... [id=/github-self-hosted-runners/ne-govcloud-runners/user_data][0m
+[0m[1mmodule.runners.aws_ssm_parameter.token_path: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/runners/config/token_path][0m
+[0m[1mmodule.runners.aws_cloudwatch_log_group.gh_runners[2]: Refreshing state... [id=/github-self-hosted-runners/ne-govcloud-runners/runner][0m
+[0m[1mmodule.vpc_main.aws_vpc.main: Refreshing state... [id=vpc-09c57ead666c2a951][0m
+[0m[1mmodule.runners.aws_cloudwatch_log_group.gh_runners[3]: Refreshing state... [id=/github-self-hosted-runners/ne-govcloud-runners/runner-startup][0m
+[0m[1mdata.aws_iam_policy_document.deny_unsecure_transport: Read complete after 0s [id=4070628872][0m
+[0m[1mmodule.runner_binaries[0].data.aws_iam_policy_document.lambda_assume_role_policy: Read complete after 0s [id=2690255455][0m
+[0m[1mmodule.runners.aws_ssm_parameter.runner_agent_mode: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/runners/config/agent_mode][0m
+[0m[1mmodule.runners.aws_iam_role.runner: Refreshing state... [id=ne-govcloud-runners-runner-role][0m
+[0m[1mdata.aws_ssm_parameter.tf_key_base64: Read complete after 0s [id=/Terraform/runnerapp/github_app_key_base64][0m
+[0m[1mmodule.runners.aws_ssm_parameter.runner_enable_cloudwatch: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/runners/config/enable_cloudwatch][0m
+[0m[1mmodule.runners.aws_ssm_parameter.runner_config_run_as: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/runners/config/run_as][0m
+[0m[1mdata.aws_ssm_parameter.tf_app_id: Reading...[0m[0m
+[0m[1mmodule.runner_binaries[0].data.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mmodule.runner_binaries[0].aws_cloudwatch_event_rule.syncer: Refreshing state... [id=ne-govcloud-runners-syncer-rule][0m
+[0m[1mmodule.runners.aws_ssm_parameter.jit_config_enabled: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/runners/config/enable_jit_config][0m
+[0m[1mmodule.runners.aws_ssm_parameter.cloudwatch_agent_config_runner[0]: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/runners/config/cloudwatch_agent_config_runner][0m
+[0m[1mmodule.runner_binaries[0].data.aws_caller_identity.current: Read complete after 0s [id=364787233652][0m
+[0m[1mmodule.runners.aws_cloudwatch_event_rule.ssm_housekeeper: Refreshing state... [id=ne-govcloud-runners-ssm-housekeeper][0m
+[0m[1mdata.aws_ssm_parameter.tf_app_id: Read complete after 1s [id=/Terraform/runnerapp/github_app_id][0m
+[0m[1mmodule.runners.aws_cloudwatch_event_rule.scale_down: Refreshing state... [id=ne-govcloud-runners-scale-down-rule][0m
+[0m[1mdata.aws_ssm_parameter.tf_webhook_secret: Reading...[0m[0m
+[0m[1mmodule.runners.data.aws_ami.runner: Read complete after 1s [id=ami-0ebfd941bbafe70c6][0m
+[0m[1mmodule.webhook.aws_apigatewayv2_api.webhook: Refreshing state... [id=gn39ilwrkf][0m
+[0m[1mdata.aws_ssm_parameter.tf_webhook_secret: Read complete after 0s [id=/Terraform/runnerapp/webhook_secret][0m
+[0m[1mmodule.webhook.data.aws_iam_policy_document.lambda_assume_role_policy: Reading...[0m[0m
+[0m[1mmodule.webhook.data.aws_iam_policy_document.lambda_assume_role_policy: Read complete after 0s [id=2690255455][0m
+[0m[1mmodule.runners.data.aws_iam_policy_document.lambda_assume_role_policy: Reading...[0m[0m
+[0m[1mmodule.runners.data.aws_iam_policy_document.lambda_assume_role_policy: Read complete after 0s [id=2690255455][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_bucket.action_dist: Refreshing state... [id=ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52][0m
+[0m[1mmodule.runners.data.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mmodule.runners.data.aws_caller_identity.current: Read complete after 0s [id=364787233652][0m
+[0m[1maws_sqs_queue.queued_builds: Refreshing state... [id=https://sqs.us-east-1.amazonaws.com/364787233652/ne-govcloud-runners-queued-builds][0m
+[0m[1mmodule.runner_binaries[0].aws_iam_role.syncer_lambda: Refreshing state... [id=ne-govcloud-runners-action-syncer-lambda-role][0m
+[0m[1mmodule.webhook.aws_iam_role.webhook_lambda: Refreshing state... [id=ne-govcloud-runners-action-webhook-lambda-role][0m
+[0m[1mmodule.runners.aws_iam_role.scale_up: Refreshing state... [id=ne-govcloud-runners-action-scale-up-lambda-role][0m
+[0m[1mmodule.runners.aws_iam_role.scale_down: Refreshing state... [id=ne-govcloud-runners-action-scale-down-lambda-role][0m
+[0m[1mmodule.runners.aws_iam_role.ssm_housekeeper: Refreshing state... [id=ne-govcloud-runners-ssm-hk-lambda][0m
+[0m[1mmodule.ssm.aws_ssm_parameter.github_app_id: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/app/github_app_id][0m
+[0m[1mmodule.ssm.aws_ssm_parameter.github_app_webhook_secret: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/app/github_app_webhook_secret][0m
+[0m[1mmodule.ssm.aws_ssm_parameter.github_app_key_base64: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/app/github_app_key_base64][0m
+[0m[1mmodule.vpc_main.aws_internet_gateway.igw: Refreshing state... [id=igw-02da6f70c0e22c419][0m
+[0m[1mmodule.vpc_main.aws_subnet.public_subnets["us-east-1a"]: Refreshing state... [id=subnet-07123a4d282b85607][0m
+[0m[1mmodule.vpc_main.aws_subnet.public_subnets["us-east-1b"]: Refreshing state... [id=subnet-075ef4409b9694a43][0m
+[0m[1mmodule.runners.aws_iam_role_policy.ec2: Refreshing state... [id=ne-govcloud-runners-runner-role:ec2][0m
+[0m[1mmodule.runners.aws_iam_instance_profile.runner: Refreshing state... [id=ne-govcloud-runners-runner-profile][0m
+[0m[1mmodule.runners.aws_iam_role_policy.describe_tags: Refreshing state... [id=ne-govcloud-runners-runner-role:runner-describe-tags][0m
+[0m[1mmodule.runners.aws_iam_role_policy.ssm_parameters: Refreshing state... [id=ne-govcloud-runners-runner-role:runner-ssm-parameters][0m
+[0m[1mmodule.runners.aws_iam_role_policy.cloudwatch[0]: Refreshing state... [id=ne-govcloud-runners-runner-role:CloudWatchLogginAndMetrics][0m
+[0m[1mmodule.webhook.aws_apigatewayv2_stage.webhook: Refreshing state... [id=$default][0m
+[0m[1maws_sqs_queue_policy.build_queue_policy: Refreshing state... [id=https://sqs.us-east-1.amazonaws.com/364787233652/ne-govcloud-runners-queued-builds][0m
+[0m[1mmodule.vpc_main.aws_route_table.public_rt: Refreshing state... [id=rtb-01db50b0ce0aab212][0m
+[0m[1mmodule.vpc_main.aws_network_acl.public: Refreshing state... [id=acl-0815af14b0165b7f8][0m
+[0m[1mmodule.vpc_main.aws_eip.eip_nat_gateways["us-east-1b"]: Refreshing state... [id=eipalloc-0fdd920ef3a3d8e3c][0m
+[0m[1mmodule.vpc_main.aws_eip.eip_nat_gateways["us-east-1a"]: Refreshing state... [id=eipalloc-055fc8fd8e666f14e][0m
+[0m[1mmodule.runners.aws_iam_role_policy.ssm_housekeeper: Refreshing state... [id=ne-govcloud-runners-ssm-hk-lambda:ssm-policy][0m
+[0m[1mmodule.runners.aws_lambda_function.ssm_housekeeper: Refreshing state... [id=ne-govcloud-runners-ssm-housekeeper][0m
+[0m[1mmodule.runners.aws_security_group.runner_sg[0]: Refreshing state... [id=sg-088583f13a0bb5a8e][0m
+[0m[1mmodule.webhook.aws_iam_role_policy.webhook_sqs: Refreshing state... [id=ne-govcloud-runners-action-webhook-lambda-role:publish-sqs-policy][0m
+[0m[1mmodule.runners.aws_iam_role_policy.service_linked_role[0]: Refreshing state... [id=ne-govcloud-runners-action-scale-up-lambda-role:service_linked_role][0m
+[0m[1mmodule.webhook.null_resource.github_app_parameters: Refreshing state... [id=3570507667158335543][0m
+[0m[1mmodule.vpc_main.aws_main_route_table_association.public: Refreshing state... [id=rtbassoc-0192f735d12f3a103][0m
+[0m[1mmodule.webhook.aws_ssm_parameter.runner_matcher_config: Refreshing state... [id=/github-action-runners/ne-govcloud-runners/webhook/runner-matcher-config][0m
+[0m[1mmodule.vpc_main.aws_route_table_association.public["us-east-1b"]: Refreshing state... [id=rtbassoc-04b2c223480e90668][0m
+[0m[1mmodule.vpc_main.aws_route_table_association.public["us-east-1a"]: Refreshing state... [id=rtbassoc-0927f8b2addf3589a][0m
+[0m[1mmodule.runners.aws_iam_role_policy.scale_down: Refreshing state... [id=ne-govcloud-runners-action-scale-down-lambda-role:scale-down-policy][0m
+[0m[1mmodule.runners.aws_lambda_function.scale_down: Refreshing state... [id=ne-govcloud-runners-scale-down][0m
+[0m[1mmodule.runners.aws_iam_role_policy.scale_up: Refreshing state... [id=ne-govcloud-runners-action-scale-up-lambda-role:scale-up-policy][0m
+[0m[1mmodule.webhook.aws_iam_role_policy.webhook_ssm: Refreshing state... [id=ne-govcloud-runners-action-webhook-lambda-role:publish-ssm-policy][0m
+[0m[1mmodule.webhook.aws_lambda_function.webhook: Refreshing state... [id=ne-govcloud-runners-webhook][0m
+[0m[1mmodule.vpc_main.aws_nat_gateway.nat_gateways["us-east-1a"]: Refreshing state... [id=nat-07513a5ebbd9a7e34][0m
+[0m[1mmodule.vpc_main.aws_nat_gateway.nat_gateways["us-east-1b"]: Refreshing state... [id=nat-055bd75ce2aa38d3b][0m
+[0m[1mmodule.runners.aws_lambda_permission.ssm_housekeeper: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1mmodule.runners.aws_cloudwatch_log_group.ssm_housekeeper: Refreshing state... [id=/aws/lambda/ne-govcloud-runners-ssm-housekeeper][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_bucket_public_access_block.action_dist: Refreshing state... [id=ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52][0m
+[0m[1mmodule.runners.aws_cloudwatch_event_target.ssm_housekeeper: Refreshing state... [id=ne-govcloud-runners-ssm-housekeeper-terraform-20240917182610537500000009][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_bucket_ownership_controls.this: Refreshing state... [id=ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52][0m
+[0m[1mmodule.runner_binaries[0].data.aws_iam_policy_document.action_dist_bucket_policy: Reading...[0m[0m
+[0m[1mmodule.runner_binaries[0].data.aws_iam_policy_document.action_dist_bucket_policy: Read complete after 0s [id=2436871988][0m
+[0m[1mmodule.runner_binaries[0].aws_lambda_function.syncer: Refreshing state... [id=ne-govcloud-runners-syncer][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_bucket_versioning.action_dist: Refreshing state... [id=ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_bucket_server_side_encryption_configuration.action_dist[0]: Refreshing state... [id=ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52][0m
+[0m[1mmodule.runner_binaries[0].aws_iam_role_policy.syncer: Refreshing state... [id=ne-govcloud-runners-action-syncer-lambda-role:s3-policy][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_bucket_lifecycle_configuration.bucket_config: Refreshing state... [id=ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_bucket_policy.action_dist_bucket_policy: Refreshing state... [id=ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52][0m
+[0m[1mmodule.runners.aws_iam_role_policy.dist_bucket[0]: Refreshing state... [id=ne-govcloud-runners-runner-role:distribution-bucket][0m
+[0m[1mmodule.runners.aws_lambda_permission.scale_down: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1mmodule.runners.aws_cloudwatch_log_group.scale_down: Refreshing state... [id=/aws/lambda/ne-govcloud-runners-scale-down][0m
+[0m[1mmodule.runners.aws_cloudwatch_event_target.scale_down: Refreshing state... [id=ne-govcloud-runners-scale-down-rule-terraform-20240917182610244400000007][0m
+[0m[1mmodule.webhook.aws_lambda_permission.webhook: Refreshing state... [id=AllowExecutionFromAPIGateway][0m
+[0m[1mmodule.webhook.aws_apigatewayv2_integration.webhook: Refreshing state... [id=60q86rn][0m
+[0m[1mmodule.webhook.aws_cloudwatch_log_group.webhook: Refreshing state... [id=/aws/lambda/ne-govcloud-runners-webhook][0m
+[0m[1mmodule.runners.aws_launch_template.runner: Refreshing state... [id=lt-04893de7b9f0d047b][0m
+[0m[1mmodule.runners.aws_iam_role_policy.ssm_housekeeper_logging: Refreshing state... [id=ne-govcloud-runners-ssm-hk-lambda:logging-policy][0m
+[0m[1mmodule.runner_binaries[0].aws_lambda_permission.syncer: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1mmodule.runner_binaries[0].aws_cloudwatch_event_target.syncer: Refreshing state... [id=ne-govcloud-runners-syncer-rule-terraform-20240917182610485900000008][0m
+[0m[1mmodule.runner_binaries[0].aws_cloudwatch_log_group.syncer: Refreshing state... [id=/aws/lambda/ne-govcloud-runners-syncer][0m
+[0m[1mmodule.runner_binaries[0].aws_lambda_permission.on_deploy: Refreshing state... [id=AllowExecutionFromS3Bucket][0m
+[0m[1mmodule.runners.aws_iam_role_policy.scale_down_logging: Refreshing state... [id=ne-govcloud-runners-action-scale-down-lambda-role:logging-policy][0m
+[0m[1mmodule.webhook.aws_iam_role_policy.webhook_logging: Refreshing state... [id=ne-govcloud-runners-action-webhook-lambda-role:logging-policy][0m
+[0m[1mmodule.webhook.aws_apigatewayv2_route.webhook: Refreshing state... [id=ju9h7n9][0m
+[0m[1mmodule.runners.aws_lambda_function.scale_up: Refreshing state... [id=ne-govcloud-runners-scale-up][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_bucket_notification.on_deploy: Refreshing state... [id=ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52][0m
+[0m[1mmodule.runner_binaries[0].aws_iam_role_policy.lambda_logging: Refreshing state... [id=ne-govcloud-runners-action-syncer-lambda-role:logging-policys][0m
+[0m[1mmodule.runner_binaries[0].aws_s3_object.trigger: Refreshing state... [id=triggers/ne-govcloud-runners-syncer-trigger.json][0m
+[0m[1mmodule.runners.aws_lambda_permission.scale_runners_lambda: Refreshing state... [id=AllowExecutionFromSQS][0m
+[0m[1mmodule.runners.aws_cloudwatch_log_group.scale_up: Refreshing state... [id=/aws/lambda/ne-govcloud-runners-scale-up][0m
+[0m[1mmodule.runners.aws_lambda_event_source_mapping.scale_up: Refreshing state... [id=88fd904b-f27d-47c5-81a6-39339335daac][0m
+[0m[1mmodule.runners.aws_iam_role_policy.scale_up_logging: Refreshing state... [id=ne-govcloud-runners-action-scale-up-lambda-role:logging-policy][0m
+
+[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+
+[0mTerraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+[0m[1m[32m
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0mbinaries_syncer = {
+  "bucket" = {
+    "acceleration_status" = ""
+    "acl" = tostring(null)
+    "arn" = "arn:aws:s3:::ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52"
+    "bucket" = "ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52"
+    "bucket_domain_name" = "ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52.s3.amazonaws.com"
+    "bucket_prefix" = ""
+    "bucket_regional_domain_name" = "ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52.s3.us-east-1.amazonaws.com"
+    "cors_rule" = tolist([])
+    "force_destroy" = true
+    "grant" = toset([
+      {
+        "id" = "b3de8847321eeac3e91eaefd49e0a63584c8b510a77d3faa98d4c4e260da1acf"
+        "permissions" = toset([
+          "FULL_CONTROL",
+        ])
+        "type" = "CanonicalUser"
+        "uri" = ""
+      },
+    ])
+    "hosted_zone_id" = "Z3AQBSTGFYJSTF"
+    "id" = "ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52"
+    "lifecycle_rule" = tolist([
+      {
+        "abort_incomplete_multipart_upload_days" = 7
+        "enabled" = true
+        "expiration" = tolist([])
+        "id" = "lifecycle_config"
+        "noncurrent_version_expiration" = tolist([])
+        "noncurrent_version_transition" = toset([])
+        "prefix" = ""
+        "tags" = tomap({})
+        "transition" = toset([
+          {
+            "date" = ""
+            "days" = 35
+            "storage_class" = "INTELLIGENT_TIERING"
+          },
+        ])
+      },
+    ])
+    "logging" = tolist([])
+    "object_lock_configuration" = tolist([])
+    "object_lock_enabled" = false
+    "policy" = "{\"Statement\":[{\"Action\":\"s3:*\",\"Condition\":{\"Bool\":{\"aws:SecureTransport\":\"false\"}},\"Effect\":\"Deny\",\"Principal\":\"*\",\"Resource\":[\"arn:aws:s3:::ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52/*\",\"arn:aws:s3:::ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52\"],\"Sid\":\"ForceSSLOnlyAccess\"},{\"Action\":\"s3:PutObject\",\"Condition\":{\"StringNotEquals\":{\"s3:x-amz-server-side-encryption\":\"AES256\"}},\"Effect\":\"Deny\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:s3:::ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52/*\",\"Sid\":\"ForceSSE\"}],\"Version\":\"2012-10-17\"}"
+    "region" = "us-east-1"
+    "replication_configuration" = tolist([])
+    "request_payer" = "BucketOwner"
+    "server_side_encryption_configuration" = tolist([
+      {
+        "rule" = tolist([
+          {
+            "apply_server_side_encryption_by_default" = tolist([
+              {
+                "kms_master_key_id" = ""
+                "sse_algorithm" = "AES256"
+              },
+            ])
+            "bucket_key_enabled" = false
+          },
+        ])
+      },
+    ])
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "timeouts" = null /* object */
+    "versioning" = tolist([
+      {
+        "enabled" = false
+        "mfa_delete" = false
+      },
+    ])
+    "website" = tolist([])
+    "website_domain" = tostring(null)
+    "website_endpoint" = tostring(null)
+  }
+  "lambda" = {
+    "architectures" = tolist([
+      "arm64",
+    ])
+    "arn" = "arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-syncer"
+    "code_sha256" = "uQPTHkx9sNfx15/Pp0CoRGbTYmdh4CPOqkad0YGd/QI="
+    "code_signing_config_arn" = ""
+    "dead_letter_config" = tolist([])
+    "description" = ""
+    "environment" = tolist([
+      {
+        "variables" = tomap({
+          "ENVIRONMENT" = "ne-govcloud-runners"
+          "GITHUB_RUNNER_ARCHITECTURE" = "x64"
+          "GITHUB_RUNNER_OS" = "linux"
+          "LOG_LEVEL" = "info"
+          "POWERTOOLS_LOGGER_LOG_EVENT" = "false"
+          "POWERTOOLS_TRACER_CAPTURE_ERROR" = "false"
+          "POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS" = "false"
+          "POWERTOOLS_TRACE_ENABLED" = "false"
+          "S3_BUCKET_NAME" = "ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52"
+          "S3_OBJECT_KEY" = "actions-runner-linux.tar.gz"
+          "S3_SSE_ALGORITHM" = "AES256"
+        })
+      },
+    ])
+    "ephemeral_storage" = tolist([
+      {
+        "size" = 512
+      },
+    ])
+    "file_system_config" = tolist([])
+    "filename" = tostring(null)
+    "function_name" = "ne-govcloud-runners-syncer"
+    "handler" = "index.handler"
+    "id" = "ne-govcloud-runners-syncer"
+    "image_config" = tolist([])
+    "image_uri" = ""
+    "invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-syncer/invocations"
+    "kms_key_arn" = ""
+    "last_modified" = "2024-09-17T18:26:03.622+0000"
+    "layers" = tolist([])
+    "logging_config" = tolist([
+      {
+        "application_log_level" = ""
+        "log_format" = "Text"
+        "log_group" = "/aws/lambda/ne-govcloud-runners-syncer"
+        "system_log_level" = ""
+      },
+    ])
+    "memory_size" = 256
+    "package_type" = "Zip"
+    "publish" = false
+    "qualified_arn" = "arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-syncer:$LATEST"
+    "qualified_invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-syncer:$LATEST/invocations"
+    "replace_security_groups_on_destroy" = tobool(null)
+    "replacement_security_group_ids" = toset(null) /* of string */
+    "reserved_concurrent_executions" = -1
+    "role" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-action-syncer-lambda-role"
+    "runtime" = "nodejs20.x"
+    "s3_bucket" = "github-runners-lambdas"
+    "s3_key" = "runner-binaries-syncer.zip"
+    "s3_object_version" = tostring(null)
+    "signing_job_arn" = ""
+    "signing_profile_version_arn" = ""
+    "skip_destroy" = false
+    "snap_start" = tolist([])
+    "source_code_hash" = ""
+    "source_code_size" = 421400
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "timeout" = 300
+    "timeouts" = null /* object */
+    "tracing_config" = tolist([
+      {
+        "mode" = "PassThrough"
+      },
+    ])
+    "version" = "$LATEST"
+    "vpc_config" = tolist([])
+  }
+  "lambda_log_group" = {
+    "arn" = "arn:aws:logs:us-east-1:364787233652:log-group:/aws/lambda/ne-govcloud-runners-syncer"
+    "id" = "/aws/lambda/ne-govcloud-runners-syncer"
+    "kms_key_id" = ""
+    "log_group_class" = "STANDARD"
+    "name" = "/aws/lambda/ne-govcloud-runners-syncer"
+    "name_prefix" = ""
+    "retention_in_days" = 30
+    "skip_destroy" = false
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+  }
+  "lambda_role" = {
+    "arn" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-action-syncer-lambda-role"
+    "assume_role_policy" = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}"
+    "create_date" = "2024-09-17T18:25:56Z"
+    "description" = ""
+    "force_detach_policies" = false
+    "id" = "ne-govcloud-runners-action-syncer-lambda-role"
+    "inline_policy" = toset([
+      {
+        "name" = "logging-policys"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:us-east-1:364787233652:log-group:/aws/lambda/ne-govcloud-runners-syncer*\"}]}"
+      },
+      {
+        "name" = "s3-policy"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"s3:GetObjectTagging\",\"s3:GetObjectVersionTagging\",\"s3:PutObject\",\"s3:PutObjectTagging\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52/actions-runner-linux.tar.gz\"]}]}"
+      },
+    ])
+    "managed_policy_arns" = toset([])
+    "max_session_duration" = 3600
+    "name" = "ne-govcloud-runners-action-syncer-lambda-role"
+    "name_prefix" = ""
+    "path" = "/ne-govcloud-runners/"
+    "permissions_boundary" = ""
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "unique_id" = "AROAVJ3YDON2CNMZKSZCB"
+  }
+  "location" = "s3://ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52/module.runner_binaries[0].bucket.key"
+}
+queues = {
+  "build_queue_arn" = "arn:aws:sqs:us-east-1:364787233652:ne-govcloud-runners-queued-builds"
+  "build_queue_dlq_arn" = null
+  "webhook_workflow_job_queue" = []
+}
+runners = {
+  "labels" = tolist([
+    "linux",
+    "self-hosted",
+    "x64",
+  ])
+  "lambda_down" = {
+    "architectures" = tolist([
+      "arm64",
+    ])
+    "arn" = "arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-scale-down"
+    "code_sha256" = "m0Ol93s+CVVtzFkNCJ0+OsiE8l972PXrP05uoe6jE90="
+    "code_signing_config_arn" = ""
+    "dead_letter_config" = tolist([])
+    "description" = ""
+    "environment" = tolist([
+      {
+        "variables" = tomap({
+          "ENVIRONMENT" = "ne-govcloud-runners"
+          "LOG_LEVEL" = "info"
+          "MINIMUM_RUNNING_TIME_IN_MINUTES" = "5"
+          "NODE_TLS_REJECT_UNAUTHORIZED" = "1"
+          "PARAMETER_GITHUB_APP_ID_NAME" = "/github-action-runners/ne-govcloud-runners/app/github_app_id"
+          "PARAMETER_GITHUB_APP_KEY_BASE64_NAME" = "/github-action-runners/ne-govcloud-runners/app/github_app_key_base64"
+          "POWERTOOLS_LOGGER_LOG_EVENT" = "false"
+          "POWERTOOLS_SERVICE_NAME" = "runners-scale-down"
+          "POWERTOOLS_TRACER_CAPTURE_ERROR" = "false"
+          "POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS" = "false"
+          "POWERTOOLS_TRACE_ENABLED" = "false"
+          "RUNNER_BOOT_TIME_IN_MINUTES" = "5"
+          "SCALE_DOWN_CONFIG" = "[]"
+        })
+      },
+    ])
+    "ephemeral_storage" = tolist([
+      {
+        "size" = 512
+      },
+    ])
+    "file_system_config" = tolist([])
+    "filename" = tostring(null)
+    "function_name" = "ne-govcloud-runners-scale-down"
+    "handler" = "index.scaleDownHandler"
+    "id" = "ne-govcloud-runners-scale-down"
+    "image_config" = tolist([])
+    "image_uri" = ""
+    "invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-scale-down/invocations"
+    "kms_key_arn" = ""
+    "last_modified" = "2024-09-17T18:26:04.140+0000"
+    "layers" = tolist([])
+    "logging_config" = tolist([
+      {
+        "application_log_level" = ""
+        "log_format" = "Text"
+        "log_group" = "/aws/lambda/ne-govcloud-runners-scale-down"
+        "system_log_level" = ""
+      },
+    ])
+    "memory_size" = 512
+    "package_type" = "Zip"
+    "publish" = false
+    "qualified_arn" = "arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-scale-down:$LATEST"
+    "qualified_invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-scale-down:$LATEST/invocations"
+    "replace_security_groups_on_destroy" = tobool(null)
+    "replacement_security_group_ids" = toset(null) /* of string */
+    "reserved_concurrent_executions" = -1
+    "role" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-action-scale-down-lambda-role"
+    "runtime" = "nodejs20.x"
+    "s3_bucket" = "github-runners-lambdas"
+    "s3_key" = "runners.zip"
+    "s3_object_version" = tostring(null)
+    "signing_job_arn" = ""
+    "signing_profile_version_arn" = ""
+    "skip_destroy" = false
+    "snap_start" = tolist([])
+    "source_code_hash" = ""
+    "source_code_size" = 729950
+    "tags" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "tags_all" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "timeout" = 60
+    "timeouts" = null /* object */
+    "tracing_config" = tolist([
+      {
+        "mode" = "PassThrough"
+      },
+    ])
+    "version" = "$LATEST"
+    "vpc_config" = tolist([])
+  }
+  "lambda_down_log_group" = {
+    "arn" = "arn:aws:logs:us-east-1:364787233652:log-group:/aws/lambda/ne-govcloud-runners-scale-down"
+    "id" = "/aws/lambda/ne-govcloud-runners-scale-down"
+    "kms_key_id" = ""
+    "log_group_class" = "STANDARD"
+    "name" = "/aws/lambda/ne-govcloud-runners-scale-down"
+    "name_prefix" = ""
+    "retention_in_days" = 30
+    "skip_destroy" = false
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+  }
+  "lambda_pool" = null
+  "lambda_pool_log_group" = null
+  "lambda_up" = {
+    "architectures" = tolist([
+      "arm64",
+    ])
+    "arn" = "arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-scale-up"
+    "code_sha256" = "m0Ol93s+CVVtzFkNCJ0+OsiE8l972PXrP05uoe6jE90="
+    "code_signing_config_arn" = ""
+    "dead_letter_config" = tolist([])
+    "description" = ""
+    "environment" = tolist([
+      {
+        "variables" = tomap({
+          "DISABLE_RUNNER_AUTOUPDATE" = "false"
+          "ENABLE_EPHEMERAL_RUNNERS" = "false"
+          "ENABLE_JOB_QUEUED_CHECK" = "true"
+          "ENABLE_ON_DEMAND_FAILOVER_FOR_ERRORS" = "[]"
+          "ENABLE_ORGANIZATION_RUNNERS" = "true"
+          "ENVIRONMENT" = "ne-govcloud-runners"
+          "INSTANCE_ALLOCATION_STRATEGY" = "lowest-price"
+          "INSTANCE_TARGET_CAPACITY_TYPE" = "spot"
+          "INSTANCE_TYPES" = "t3.medium"
+          "JOB_RETRY_CONFIG" = "{}"
+          "LAUNCH_TEMPLATE_NAME" = "ne-govcloud-runners-action-runner"
+          "LOG_LEVEL" = "info"
+          "MINIMUM_RUNNING_TIME_IN_MINUTES" = "5"
+          "NODE_TLS_REJECT_UNAUTHORIZED" = "1"
+          "PARAMETER_GITHUB_APP_ID_NAME" = "/github-action-runners/ne-govcloud-runners/app/github_app_id"
+          "PARAMETER_GITHUB_APP_KEY_BASE64_NAME" = "/github-action-runners/ne-govcloud-runners/app/github_app_key_base64"
+          "POWERTOOLS_LOGGER_LOG_EVENT" = "false"
+          "POWERTOOLS_SERVICE_NAME" = "runners-scale-up"
+          "POWERTOOLS_TRACER_CAPTURE_ERROR" = "false"
+          "POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS" = "false"
+          "POWERTOOLS_TRACE_ENABLED" = "false"
+          "RUNNERS_MAXIMUM_COUNT" = "15"
+          "RUNNER_GROUP_NAME" = "ne-govcloud-runners"
+          "RUNNER_LABELS" = "linux,self-hosted,x64"
+          "RUNNER_NAME_PREFIX" = ""
+          "SSM_CONFIG_PATH" = "/github-action-runners/ne-govcloud-runners/runners/config"
+          "SSM_TOKEN_PATH" = "/github-action-runners/ne-govcloud-runners/runners/tokens"
+          "SUBNET_IDS" = "subnet-07123a4d282b85607,subnet-075ef4409b9694a43"
+        })
+      },
+    ])
+    "ephemeral_storage" = tolist([
+      {
+        "size" = 512
+      },
+    ])
+    "file_system_config" = tolist([])
+    "filename" = tostring(null)
+    "function_name" = "ne-govcloud-runners-scale-up"
+    "handler" = "index.scaleUpHandler"
+    "id" = "ne-govcloud-runners-scale-up"
+    "image_config" = tolist([])
+    "image_uri" = ""
+    "invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-scale-up/invocations"
+    "kms_key_arn" = ""
+    "last_modified" = "2024-09-17T18:26:25.045+0000"
+    "layers" = tolist([])
+    "logging_config" = tolist([
+      {
+        "application_log_level" = ""
+        "log_format" = "Text"
+        "log_group" = "/aws/lambda/ne-govcloud-runners-scale-up"
+        "system_log_level" = ""
+      },
+    ])
+    "memory_size" = 512
+    "package_type" = "Zip"
+    "publish" = false
+    "qualified_arn" = "arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-scale-up:$LATEST"
+    "qualified_invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-scale-up:$LATEST/invocations"
+    "replace_security_groups_on_destroy" = tobool(null)
+    "replacement_security_group_ids" = toset(null) /* of string */
+    "reserved_concurrent_executions" = 1
+    "role" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-action-scale-up-lambda-role"
+    "runtime" = "nodejs20.x"
+    "s3_bucket" = "github-runners-lambdas"
+    "s3_key" = "runners.zip"
+    "s3_object_version" = tostring(null)
+    "signing_job_arn" = ""
+    "signing_profile_version_arn" = ""
+    "skip_destroy" = false
+    "snap_start" = tolist([])
+    "source_code_hash" = ""
+    "source_code_size" = 729950
+    "tags" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "tags_all" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "timeout" = 30
+    "timeouts" = null /* object */
+    "tracing_config" = tolist([
+      {
+        "mode" = "PassThrough"
+      },
+    ])
+    "version" = "$LATEST"
+    "vpc_config" = tolist([])
+  }
+  "lambda_up_log_group" = {
+    "arn" = "arn:aws:logs:us-east-1:364787233652:log-group:/aws/lambda/ne-govcloud-runners-scale-up"
+    "id" = "/aws/lambda/ne-govcloud-runners-scale-up"
+    "kms_key_id" = ""
+    "log_group_class" = "STANDARD"
+    "name" = "/aws/lambda/ne-govcloud-runners-scale-up"
+    "name_prefix" = ""
+    "retention_in_days" = 30
+    "skip_destroy" = false
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+  }
+  "launch_template_ami_id" = "ami-0ebfd941bbafe70c6"
+  "launch_template_id" = "lt-04893de7b9f0d047b"
+  "launch_template_name" = "ne-govcloud-runners-action-runner"
+  "launch_template_version" = 1
+  "logfiles" = tolist([
+    {
+      "file_path" = "/var/log/messages"
+      "log_group_name" = "/github-self-hosted-runners/ne-govcloud-runners/messages"
+      "log_stream_name" = "{instance_id}"
+    },
+    {
+      "file_path" = "/var/log/user-data.log"
+      "log_group_name" = "/github-self-hosted-runners/ne-govcloud-runners/user_data"
+      "log_stream_name" = "{instance_id}"
+    },
+    {
+      "file_path" = "/opt/actions-runner/_diag/Runner_**.log"
+      "log_group_name" = "/github-self-hosted-runners/ne-govcloud-runners/runner"
+      "log_stream_name" = "{instance_id}"
+    },
+    {
+      "file_path" = "/var/log/runner-startup.log"
+      "log_group_name" = "/github-self-hosted-runners/ne-govcloud-runners/runner-startup"
+      "log_stream_name" = "{instance_id}"
+    },
+  ])
+  "role_pool" = null
+  "role_runner" = {
+    "arn" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-runner-role"
+    "assume_role_policy" = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}"
+    "create_date" = "2024-09-17T18:25:55Z"
+    "description" = ""
+    "force_detach_policies" = false
+    "id" = "ne-govcloud-runners-runner-role"
+    "inline_policy" = toset([
+      {
+        "name" = "CloudWatchLogginAndMetrics"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"cloudwatch:PutMetricData\",\"ec2:DescribeVolumes\",\"ec2:DescribeTags\",\"logs:PutLogEvents\",\"logs:DescribeLogStreams\",\"logs:DescribeLogGroups\",\"logs:CreateLogStream\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"ssm:GetParameter\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/runners/config/cloudwatch_agent_config_runner/*\"}]}"
+      },
+      {
+        "name" = "distribution-bucket"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"s3:GetObject\",\"s3:GetObjectAcl\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::ne-govcloud-runners-dist-uethrgrlaib6j2wifr85rt52/actions-runner-linux.tar.gz\"],\"Sid\":\"githubActionDist\"}]}"
+      },
+      {
+        "name" = "ec2"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"ec2:TerminateInstances\",\"Condition\":{\"StringEquals\":{\"aws:ARN\":\"${ec2:SourceInstanceARN}\"}},\"Effect\":\"Allow\",\"Resource\":\"*\"}]}"
+      },
+      {
+        "name" = "runner-describe-tags"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"ec2:DescribeTags\",\"Effect\":\"Allow\",\"Resource\":\"*\"}]}"
+      },
+      {
+        "name" = "runner-ssm-parameters"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ssm:DeleteParameter\",\"ssm:GetParameters\",\"ssm:GetParameter\"],\"Condition\":{\"StringLike\":{\"ec2:SourceInstanceARN\":\"*/${aws:ResourceTag/InstanceId}\"}},\"Effect\":\"Allow\",\"Resource\":\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/runners/tokens/*\"},{\"Action\":[\"ssm:GetParameter\",\"ssm:GetParameters\",\"ssm:GetParametersByPath\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/runners/config\",\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/runners/config/*\"]}]}"
+      },
+    ])
+    "managed_policy_arns" = toset([])
+    "max_session_duration" = 3600
+    "name" = "ne-govcloud-runners-runner-role"
+    "name_prefix" = ""
+    "path" = "/ne-govcloud-runners/"
+    "permissions_boundary" = ""
+    "tags" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "tags_all" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "unique_id" = "AROAVJ3YDON2FZQP7HJOL"
+  }
+  "role_scale_down" = {
+    "arn" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-action-scale-down-lambda-role"
+    "assume_role_policy" = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}"
+    "create_date" = "2024-09-17T18:25:56Z"
+    "description" = ""
+    "force_detach_policies" = false
+    "id" = "ne-govcloud-runners-action-scale-down-lambda-role"
+    "inline_policy" = toset([
+      {
+        "name" = "logging-policy"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:us-east-1:364787233652:log-group:/aws/lambda/ne-govcloud-runners-scale-down*\"}]}"
+      },
+      {
+        "name" = "scale-down-policy"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:DescribeInstances\",\"ec2:DescribeTags\"],\"Effect\":\"Allow\",\"Resource\":[\"*\"]},{\"Action\":[\"ec2:TerminateInstances\",\"ec2:CreateTags\"],\"Condition\":{\"StringEquals\":{\"ec2:ResourceTag/ghr:Application\":\"github-action-runner\"}},\"Effect\":\"Allow\",\"Resource\":[\"*\"]},{\"Action\":[\"ec2:TerminateInstances\",\"ec2:CreateTags\"],\"Condition\":{\"StringEquals\":{\"ec2:ResourceTag/gh:environment\":\"ne-govcloud-runners\"}},\"Effect\":\"Allow\",\"Resource\":[\"*\"]},{\"Action\":[\"ssm:GetParameter\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/app/github_app_key_base64\",\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/app/github_app_id\"]}]}"
+      },
+    ])
+    "managed_policy_arns" = toset([])
+    "max_session_duration" = 3600
+    "name" = "ne-govcloud-runners-action-scale-down-lambda-role"
+    "name_prefix" = ""
+    "path" = "/ne-govcloud-runners/"
+    "permissions_boundary" = ""
+    "tags" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "tags_all" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "unique_id" = "AROAVJ3YDON2HDVXCCYY5"
+  }
+  "role_scale_up" = {
+    "arn" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-action-scale-up-lambda-role"
+    "assume_role_policy" = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}"
+    "create_date" = "2024-09-17T18:25:56Z"
+    "description" = ""
+    "force_detach_policies" = false
+    "id" = "ne-govcloud-runners-action-scale-up-lambda-role"
+    "inline_policy" = toset([
+      {
+        "name" = "logging-policy"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:us-east-1:364787233652:log-group:/aws/lambda/ne-govcloud-runners-scale-up*\"}]}"
+      },
+      {
+        "name" = "scale-up-policy"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ec2:DescribeInstances\",\"ec2:DescribeTags\",\"ec2:RunInstances\",\"ec2:CreateFleet\",\"ec2:CreateTags\"],\"Effect\":\"Allow\",\"Resource\":[\"*\"]},{\"Action\":\"iam:PassRole\",\"Effect\":\"Allow\",\"Resource\":\"arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-runner-role\"},{\"Action\":[\"ssm:PutParameter\",\"ssm:AddTagsToResource\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"ssm:GetParameter\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/app/github_app_key_base64\",\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/app/github_app_id\",\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/runners/config/*\"]},{\"Action\":[\"sqs:ReceiveMessage\",\"sqs:GetQueueAttributes\",\"sqs:DeleteMessage\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:sqs:us-east-1:364787233652:ne-govcloud-runners-queued-builds\"}]}"
+      },
+      {
+        "name" = "service_linked_role"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"iam:CreateServiceLinkedRole\",\"Effect\":\"Allow\",\"Resource\":\"arn:aws:iam::*:role/aws-service-role/*\"}]}"
+      },
+    ])
+    "managed_policy_arns" = toset([])
+    "max_session_duration" = 3600
+    "name" = "ne-govcloud-runners-action-scale-up-lambda-role"
+    "name_prefix" = ""
+    "path" = "/ne-govcloud-runners/"
+    "permissions_boundary" = ""
+    "tags" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "tags_all" = tomap({
+      "Name" = "ne-govcloud-runners-action-runner"
+      "ghr:environment" = "ne-govcloud-runners"
+      "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+    })
+    "unique_id" = "AROAVJ3YDON2MORESALK7"
+  }
+  "runners_log_groups" = [
+    {
+      "arn" = "arn:aws:logs:us-east-1:364787233652:log-group:/github-self-hosted-runners/ne-govcloud-runners/messages"
+      "id" = "/github-self-hosted-runners/ne-govcloud-runners/messages"
+      "kms_key_id" = ""
+      "log_group_class" = "STANDARD"
+      "name" = "/github-self-hosted-runners/ne-govcloud-runners/messages"
+      "name_prefix" = ""
+      "retention_in_days" = 30
+      "skip_destroy" = false
+      "tags" = tomap({
+        "Name" = "ne-govcloud-runners-action-runner"
+        "ghr:environment" = "ne-govcloud-runners"
+        "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+      })
+      "tags_all" = tomap({
+        "Name" = "ne-govcloud-runners-action-runner"
+        "ghr:environment" = "ne-govcloud-runners"
+        "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+      })
+    },
+    {
+      "arn" = "arn:aws:logs:us-east-1:364787233652:log-group:/github-self-hosted-runners/ne-govcloud-runners/user_data"
+      "id" = "/github-self-hosted-runners/ne-govcloud-runners/user_data"
+      "kms_key_id" = ""
+      "log_group_class" = "STANDARD"
+      "name" = "/github-self-hosted-runners/ne-govcloud-runners/user_data"
+      "name_prefix" = ""
+      "retention_in_days" = 30
+      "skip_destroy" = false
+      "tags" = tomap({
+        "Name" = "ne-govcloud-runners-action-runner"
+        "ghr:environment" = "ne-govcloud-runners"
+        "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+      })
+      "tags_all" = tomap({
+        "Name" = "ne-govcloud-runners-action-runner"
+        "ghr:environment" = "ne-govcloud-runners"
+        "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+      })
+    },
+    {
+      "arn" = "arn:aws:logs:us-east-1:364787233652:log-group:/github-self-hosted-runners/ne-govcloud-runners/runner"
+      "id" = "/github-self-hosted-runners/ne-govcloud-runners/runner"
+      "kms_key_id" = ""
+      "log_group_class" = "STANDARD"
+      "name" = "/github-self-hosted-runners/ne-govcloud-runners/runner"
+      "name_prefix" = ""
+      "retention_in_days" = 30
+      "skip_destroy" = false
+      "tags" = tomap({
+        "Name" = "ne-govcloud-runners-action-runner"
+        "ghr:environment" = "ne-govcloud-runners"
+        "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+      })
+      "tags_all" = tomap({
+        "Name" = "ne-govcloud-runners-action-runner"
+        "ghr:environment" = "ne-govcloud-runners"
+        "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+      })
+    },
+    {
+      "arn" = "arn:aws:logs:us-east-1:364787233652:log-group:/github-self-hosted-runners/ne-govcloud-runners/runner-startup"
+      "id" = "/github-self-hosted-runners/ne-govcloud-runners/runner-startup"
+      "kms_key_id" = ""
+      "log_group_class" = "STANDARD"
+      "name" = "/github-self-hosted-runners/ne-govcloud-runners/runner-startup"
+      "name_prefix" = ""
+      "retention_in_days" = 30
+      "skip_destroy" = false
+      "tags" = tomap({
+        "Name" = "ne-govcloud-runners-action-runner"
+        "ghr:environment" = "ne-govcloud-runners"
+        "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+      })
+      "tags_all" = tomap({
+        "Name" = "ne-govcloud-runners-action-runner"
+        "ghr:environment" = "ne-govcloud-runners"
+        "ghr:ssm_config_path" = "/github-action-runners/ne-govcloud-runners/runners/config"
+      })
+    },
+  ]
+}
+ssm_parameters = {
+  "github_app_id" = {
+    "arn" = "arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/app/github_app_id"
+    "name" = "/github-action-runners/ne-govcloud-runners/app/github_app_id"
+  }
+  "github_app_key_base64" = {
+    "arn" = "arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/app/github_app_key_base64"
+    "name" = "/github-action-runners/ne-govcloud-runners/app/github_app_key_base64"
+  }
+  "github_app_webhook_secret" = {
+    "arn" = "arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/app/github_app_webhook_secret"
+    "name" = "/github-action-runners/ne-govcloud-runners/app/github_app_webhook_secret"
+  }
+}
+webhook = {
+  "endpoint" = "https://gn39ilwrkf.execute-api.us-east-1.amazonaws.com/webhook"
+  "gateway" = {
+    "api_endpoint" = "https://gn39ilwrkf.execute-api.us-east-1.amazonaws.com"
+    "api_key_selection_expression" = "$request.header.x-api-key"
+    "arn" = "arn:aws:apigateway:us-east-1::/apis/gn39ilwrkf"
+    "body" = tostring(null)
+    "cors_configuration" = tolist([])
+    "credentials_arn" = tostring(null)
+    "description" = ""
+    "disable_execute_api_endpoint" = false
+    "execution_arn" = "arn:aws:execute-api:us-east-1:364787233652:gn39ilwrkf"
+    "fail_on_warnings" = tobool(null)
+    "id" = "gn39ilwrkf"
+    "name" = "ne-govcloud-runners-github-action-webhook"
+    "protocol_type" = "HTTP"
+    "route_key" = tostring(null)
+    "route_selection_expression" = "$request.method $request.path"
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "target" = tostring(null)
+    "version" = ""
+  }
+  "lambda" = {
+    "architectures" = tolist([
+      "arm64",
+    ])
+    "arn" = "arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-webhook"
+    "code_sha256" = "MRq7uODCAXX0bQfQtpLN5njHoIIn+hgxVlAcX8Eo6dY="
+    "code_signing_config_arn" = ""
+    "dead_letter_config" = tolist([])
+    "description" = ""
+    "environment" = tolist([
+      {
+        "variables" = tomap({
+          "LOG_LEVEL" = "info"
+          "PARAMETER_GITHUB_APP_WEBHOOK_SECRET" = "/github-action-runners/ne-govcloud-runners/app/github_app_webhook_secret"
+          "PARAMETER_RUNNER_MATCHER_CONFIG_PATH" = "/github-action-runners/ne-govcloud-runners/webhook/runner-matcher-config"
+          "POWERTOOLS_LOGGER_LOG_EVENT" = "false"
+          "POWERTOOLS_TRACER_CAPTURE_ERROR" = "false"
+          "POWERTOOLS_TRACER_CAPTURE_HTTPS_REQUESTS" = "false"
+          "POWERTOOLS_TRACE_ENABLED" = "false"
+          "REPOSITORY_ALLOW_LIST" = "[]"
+        })
+      },
+    ])
+    "ephemeral_storage" = tolist([
+      {
+        "size" = 512
+      },
+    ])
+    "file_system_config" = tolist([])
+    "filename" = tostring(null)
+    "function_name" = "ne-govcloud-runners-webhook"
+    "handler" = "index.githubWebhook"
+    "id" = "ne-govcloud-runners-webhook"
+    "image_config" = tolist([])
+    "image_uri" = ""
+    "invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-webhook/invocations"
+    "kms_key_arn" = ""
+    "last_modified" = "2024-09-17T18:26:26.157+0000"
+    "layers" = tolist([])
+    "logging_config" = tolist([
+      {
+        "application_log_level" = ""
+        "log_format" = "Text"
+        "log_group" = "/aws/lambda/ne-govcloud-runners-webhook"
+        "system_log_level" = ""
+      },
+    ])
+    "memory_size" = 256
+    "package_type" = "Zip"
+    "publish" = false
+    "qualified_arn" = "arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-webhook:$LATEST"
+    "qualified_invoke_arn" = "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:364787233652:function:ne-govcloud-runners-webhook:$LATEST/invocations"
+    "replace_security_groups_on_destroy" = tobool(null)
+    "replacement_security_group_ids" = toset(null) /* of string */
+    "reserved_concurrent_executions" = -1
+    "role" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-action-webhook-lambda-role"
+    "runtime" = "nodejs20.x"
+    "s3_bucket" = "github-runners-lambdas"
+    "s3_key" = "webhook.zip"
+    "s3_object_version" = tostring(null)
+    "signing_job_arn" = ""
+    "signing_profile_version_arn" = ""
+    "skip_destroy" = false
+    "snap_start" = tolist([])
+    "source_code_hash" = ""
+    "source_code_size" = 305003
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "timeout" = 10
+    "timeouts" = null /* object */
+    "tracing_config" = tolist([
+      {
+        "mode" = "PassThrough"
+      },
+    ])
+    "version" = "$LATEST"
+    "vpc_config" = tolist([])
+  }
+  "lambda_log_group" = {
+    "arn" = "arn:aws:logs:us-east-1:364787233652:log-group:/aws/lambda/ne-govcloud-runners-webhook"
+    "id" = "/aws/lambda/ne-govcloud-runners-webhook"
+    "kms_key_id" = ""
+    "log_group_class" = "STANDARD"
+    "name" = "/aws/lambda/ne-govcloud-runners-webhook"
+    "name_prefix" = ""
+    "retention_in_days" = 30
+    "skip_destroy" = false
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+  }
+  "lambda_role" = {
+    "arn" = "arn:aws:iam::364787233652:role/ne-govcloud-runners/ne-govcloud-runners-action-webhook-lambda-role"
+    "assume_role_policy" = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}"
+    "create_date" = "2024-09-17T18:25:56Z"
+    "description" = ""
+    "force_detach_policies" = false
+    "id" = "ne-govcloud-runners-action-webhook-lambda-role"
+    "inline_policy" = toset([
+      {
+        "name" = "logging-policy"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:us-east-1:364787233652:log-group:/aws/lambda/ne-govcloud-runners-webhook*\"}]}"
+      },
+      {
+        "name" = "publish-sqs-policy"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"sqs:SendMessage\",\"sqs:GetQueueAttributes\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:sqs:us-east-1:364787233652:ne-govcloud-runners-queued-builds\"]}]}"
+      },
+      {
+        "name" = "publish-ssm-policy"
+        "policy" = "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"ssm:GetParameter\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/app/github_app_webhook_secret\",\"arn:aws:ssm:us-east-1:364787233652:parameter/github-action-runners/ne-govcloud-runners/webhook/runner-matcher-config\"]}]}"
+      },
+    ])
+    "managed_policy_arns" = toset([])
+    "max_session_duration" = 3600
+    "name" = "ne-govcloud-runners-action-webhook-lambda-role"
+    "name_prefix" = ""
+    "path" = "/ne-govcloud-runners/"
+    "permissions_boundary" = ""
+    "tags" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "tags_all" = tomap({
+      "ghr:environment" = "ne-govcloud-runners"
+    })
+    "unique_id" = "AROAVJ3YDON2G73U2LCDK"
+  }
+}
