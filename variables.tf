@@ -578,7 +578,7 @@ variable "log_level" {
 variable "enable_runner_workflow_job_labels_check_all" {
   description = "If set to true all labels in the workflow job must match the GitHub labels (os, architecture and `self-hosted`). When false if __any__ label matches it will trigger the webhook."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "matcher_config_parameter_store_tier" {
@@ -593,9 +593,10 @@ variable "matcher_config_parameter_store_tier" {
 variable "runner_ec2_tags" {
   description = "Map of tags that will be added to the launch template instance tag specifications."
   type        = map(string)
-  default     = {
-    "Name"    = "ne-app-runners"
-  }
+  #default     = {
+  #  "name"    = "ne-app-runners"
+  #}
+default     = {}
 }
 
 variable "runner_metadata_options" {
@@ -694,7 +695,7 @@ variable "pool_lambda_timeout" {
 variable "pool_runner_owner" {
   description = "The pool will deploy runners to the GitHub org ID, set this value to the org to which you want the runners deployed. Repo level is not supported."
   type        = string
-  default     = null
+  default     = "SecZetta"
 }
 
 variable "pool_lambda_reserved_concurrent_executions" {
@@ -744,7 +745,7 @@ variable "lambda_architecture" {
 variable "enable_workflow_job_events_queue" {
   description = "Enabling this experimental feature will create a secondory sqs queue to which a copy of the workflow_job event will be delivered."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "workflow_job_queue_configuration" {
@@ -755,9 +756,9 @@ variable "workflow_job_queue_configuration" {
     message_retention_seconds  = number
   })
   default = {
-    "delay_seconds" : null,
-    "visibility_timeout_seconds" : null,
-    "message_retention_seconds" : null
+    "delay_seconds" : 15,
+    "visibility_timeout_seconds" : 180,
+    "message_retention_seconds" : 300
   }
 }
 variable "enable_runner_binaries_syncer" {
@@ -769,7 +770,8 @@ variable "enable_runner_binaries_syncer" {
 variable "state_event_rule_binaries_syncer" {
   type        = string
   description = "Option to disable EventBridge Lambda trigger for the binary syncer, useful to stop automatic updates of binary distribution"
-  default     = "ENABLED"
+  #default     = "ENABLED"
+  default     = "DISABLED"
 
   validation {
     condition     = contains(["ENABLED", "DISABLED", "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS"], var.state_event_rule_binaries_syncer)
@@ -853,7 +855,7 @@ variable "enable_jit_config" {
 variable "associate_public_ipv4_address" {
   description = "Associate public IPv4 with the runner. Only tested with IPv4"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "runners_ssm_housekeeper" {
@@ -945,11 +947,11 @@ variable "job_retry" {
 
   type = object({
     enable             = optional(bool, true)
-    delay_in_seconds   = optional(number, 300)
+    delay_in_seconds   = optional(number, 180)
     delay_backoff      = optional(number, 2)
     lambda_memory_size = optional(number, 256)
     lambda_timeout     = optional(number, 30)
-    max_attempts       = optional(number, 1)
+    max_attempts       = optional(number, 2)
   })
   default = {}
 }

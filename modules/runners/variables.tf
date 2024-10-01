@@ -127,7 +127,7 @@ variable "ami_filter" {
 variable "ami_owners" {
   description = "The list of owners used to select the AMI of action runner instances."
   type        = list(string)
-  default     = ["amazon", "364787233652"]
+  default     = ["364787233652"]
 }
 
 variable "ami_id_ssm_parameter_name" {
