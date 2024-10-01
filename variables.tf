@@ -1,40 +1,40 @@
 variable "aws_cli_profile" {
   description = "Profile for AWS cli"
   type        = string
-  default     = "internalaccount"
+  default     = "nerm_fedramp_gov_dev"
 }
 
 variable "aws_region" {
   description = "AWS region."
   type        = string
-  default     = "us-east-1"
+  default     = "us-gov-west-1"
 }
 
 variable "vpc_name" {
   description = "Name of the VPC for security groups of the action runners."
   type        = string
-  default     = "govcloud-runner-vpc"
+  default     = "govcloud-dev-runner-vpc"
 }
 
 variable "customer" {
   description = "Name of the 'customer' for action runners."
   type        = string
-  default     = "govcloud-runner"
+  default     = "govcloud-dev-runner"
 }
 
 variable "vpc_cidr" {
   description = "Cidr block for action runners."
   type        = string
-  default     = "10.100.0.0/16"
+  default     = "10.110.0.0/16"
 }
 
 variable "public_cidrs" {
   description = "Map of public cidrs that will be used for the github runners"
   type        = map(string)
   default     = {
-    us-east-1a = "10.100.2.0/24"
-    us-east-1b = "10.100.4.0/24"
-  }
+    us-gov-west-1a = "10.110.2.0/24"
+    us-gov-west-1b = "10.110.3.0/24"
+   }
 }
 
 variable "tags" {
@@ -46,7 +46,7 @@ variable "tags" {
 variable "prefix" {
   description = "The prefix used for naming resources"
   type        = string
-  default     = "ne-govcloud-runners"
+  default     = "ne-govcloud-dev-runners"
 }
 
 variable "enable_organization_runners" {
@@ -76,13 +76,13 @@ variable "runner_boot_time_in_minutes" {
 variable "runner_extra_labels" {
   description = "Extra (custom) labels for the runners (GitHub). Labels checks on the webhook can be enforced by setting `enable_runner_workflow_job_labels_check_all`. GitHub read-only labels should not be provided."
   type        = list(string)
-  default     = ["ne-app-runners"]
+  default     = ["ne-govcloud-dev"]
 }
 
 variable "runner_group_name" {
   description = "Name of the runner group."
   type        = string
-  default     = "ne-govcloud-runners"
+  default     = "ne-govcloud-dev-runners"
 }
 
 variable "scale_up_reserved_concurrent_executions" {
@@ -178,7 +178,7 @@ variable "runner_binaries_s3_versioning" {
 variable "runner_binaries_s3_logging_bucket" {
   description = "Bucket for action runner distribution bucket access logging."
   type        = string
-  default     = "runnerapp-dist-logs"
+  default     = "sailpoint-ne-govdev-ghr-dist-logs"
 
   # Make sure the bucket name only contains legal characters
   validation {
@@ -345,7 +345,7 @@ variable "ami_filter" {
 variable "ami_owners" {
   description = "The list of owners used to select the AMI of action runner instances."
   type        = list(string)
-  default     = ["364787233652"]
+  default     = ["095360987008"]
 }
 
 variable "ami_id_ssm_parameter_name" {
@@ -363,7 +363,7 @@ variable "ami_kms_key_arn" {
 variable "lambda_s3_bucket" {
   description = "S3 bucket from which to specify lambda functions. This is an alternative to providing local files directly."
   type        = string
-  default     = "github-runners-lambdas"
+  default     = "sailpoint-ne-govdev-ghr-lambdas"
 }
 
 variable "syncer_lambda_s3_key" {
@@ -512,7 +512,7 @@ variable "instance_types" {
   description = "List of instance types for the action runner. Defaults are based on runner_os (al2023 for linux and Windows Server Core for win)."
   type        = list(string)
   #default     = ["m5.large", "c5.large"]
-  default     = ["m3.medium"]
+  default     = ["m7i.medium"]
 }
 
 variable "repository_white_list" {

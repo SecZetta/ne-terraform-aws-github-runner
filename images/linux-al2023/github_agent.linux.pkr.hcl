@@ -15,12 +15,12 @@ variable "runner_version" {
 variable "region" {
   description = "The region to build the image in"
   type        = string
-  default     = "us-east-1"
+  default     = "us-gov-west-1"
 }
 
 variable "availability_zone_names" {
   type    = list(string)
-  default = ["us-east-1a", "us-east-1b"]
+  default = ["us-west-1a", "us-west-1b", "us-west-1c"]
 }
 
 variable "security_group_id" {
