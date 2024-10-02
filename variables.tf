@@ -64,7 +64,7 @@ variable "scale_down_schedule_expression" {
 variable "minimum_running_time_in_minutes" {
   description = "The time an ec2 action runner should be running at minimum before terminated, if not busy."
   type        = number
-  default     = 10
+  default     = 5
 }
 
 variable "runner_boot_time_in_minutes" {
@@ -100,13 +100,13 @@ variable "webhook_lambda_zip" {
 variable "webhook_lambda_memory_size" {
   description = "Memory size limit in MB for webhook lambda in."
   type        = number
-  default     = 256
+  default     = 512
 }
 
 variable "webhook_lambda_timeout" {
   description = "Time out of the webhook lambda in seconds."
   type        = number
-  default     = 10
+  default     = 30
 }
 
 variable "runners_lambda_zip" {
@@ -233,7 +233,7 @@ variable "runner_run_as" {
 variable "runners_maximum_count" {
   description = "The maximum number of runners that will be created."
   type        = number
-  default     = 15
+  default     = -1
 }
 
 variable "kms_key_arn" {
@@ -495,7 +495,7 @@ variable "instance_target_capacity_type" {
 variable "instance_allocation_strategy" {
   description = "The allocation strategy for spot instances. AWS recommends using `price-capacity-optimized` however the AWS default is `lowest-price`."
   type        = string
-  default     = "lowest-price"
+  default     = "price-capacity-optimized"
   validation {
     condition     = contains(["lowest-price", "diversified", "capacity-optimized", "capacity-optimized-prioritized", "price-capacity-optimized"], var.instance_allocation_strategy)
     error_message = "The instance allocation strategy does not match the allowed values."
@@ -524,7 +524,7 @@ variable "repository_white_list" {
 variable "delay_webhook_event" {
   description = "The number of seconds the event accepted by the webhook is invisible on the queue before the scale up lambda will receive the event."
   type        = number
-  default     = 30
+  default     = 10
 }
 variable "job_queue_retention_in_seconds" {
   description = "The number of seconds the job is held in the queue before it is purged."
@@ -560,7 +560,7 @@ variable "runner_egress_rules" {
 variable "log_level" {
   description = "Logging level for lambda logging. Valid values are  'silly', 'trace', 'debug', 'info', 'warn', 'error', 'fatal'."
   type        = string
-  default     = "debug"
+  default     = "info"
   validation {
     condition = anytrue([
       var.log_level == "silly",
@@ -619,7 +619,7 @@ variable "enable_ephemeral_runners" {
 variable "enable_job_queued_check" {
   description = "Only scale if the job event received by the scale up lambda is in the queued state. By default enabled for non ephemeral runners and disabled for ephemeral. Set this variable to overwrite the default behavior."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "enable_managed_runner_security_group" {
@@ -689,7 +689,7 @@ variable "pool_lambda_memory_size" {
 variable "pool_lambda_timeout" {
   description = "Time out for the pool lambda in seconds."
   type        = number
-  default     = 60
+  default     = 30
 }
 
 variable "pool_runner_owner" {
@@ -701,7 +701,7 @@ variable "pool_runner_owner" {
 variable "pool_lambda_reserved_concurrent_executions" {
   description = "Amount of reserved concurrent executions for the scale-up lambda function. A value of 0 disables lambda from being triggered and -1 removes any concurrency limitations."
   type        = number
-  default     = 1
+  default     = -1
 }
 
 variable "pool_config" {
@@ -764,7 +764,7 @@ variable "workflow_job_queue_configuration" {
 variable "enable_runner_binaries_syncer" {
   description = "Option to disable the lambda to sync GitHub runner distribution, useful when using a pre-build AMI."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "state_event_rule_binaries_syncer" {
@@ -800,7 +800,7 @@ variable "queue_encryption" {
 variable "enable_user_data_debug_logging_runner" {
   description = "Option to enable debug logging for user-data, this logs all secrets as well."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "ssm_paths" {
@@ -918,7 +918,7 @@ variable "instance_termination_watcher" {
 variable "runners_ebs_optimized" {
   description = "Enable EBS optimization for the runner instances."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "lambda_tags" {
@@ -947,11 +947,11 @@ variable "job_retry" {
 
   type = object({
     enable             = optional(bool, true)
-    delay_in_seconds   = optional(number, 180)
+    delay_in_seconds   = optional(number, 15)
     delay_backoff      = optional(number, 2)
-    lambda_memory_size = optional(number, 256)
-    lambda_timeout     = optional(number, 30)
-    max_attempts       = optional(number, 2)
+    lambda_memory_size = optional(number, 512)
+    lambda_timeout     = optional(number, 10)
+    max_attempts       = optional(number, 5)
   })
   default = {}
 }
