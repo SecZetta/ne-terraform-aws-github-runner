@@ -20,19 +20,19 @@ variable "region" {
 
 variable "availability_zone_names" {
   type    = list(string)
-  default = ["us-west-1a", "us-west-1b", "us-west-1c"]
+  default = ["us-west-1a", "us-west-1b"]
 }
 
 variable "security_group_id" {
   description = "The ID of the security group Packer will associate with the builder to enable access"
   type        = string
-  default     = "sg-088583f13a0bb5a8e"
+  default     = "sg-01a677b60a2c94a96"
 }
 
 variable "subnet_id" {
   description = "If using VPC, the ID of the subnet, such as subnet-12345def, where Packer will launch the EC2 instance. This field is required if you are using an non-default VPC"
   type        = string
-  default     = "subnet-07123a4d282b85607"
+  default     = "subnet-04b0fdf45d91e9d52"
 }
 
 variable "associate_public_ip_address" {
@@ -44,12 +44,12 @@ variable "associate_public_ip_address" {
 variable "instance_type" {
   description = "The instance type Packer will use for the builder"
   type        = string
-  default     = "m3.medium"
+  default     = "m7i.large"
 }
 
 variable "root_volume_size_gb" {
   type    = number
-  default = 8
+  default = 30
 }
 
 variable "ebs_delete_on_termination" {
@@ -67,7 +67,7 @@ variable "global_tags" {
 variable "ami_tags" {
   description = "Tags to apply to the AMI"
   type        = map(string)
-  default     = { name = "ne-app-runners" }
+  default     = { name = "ne-govcloud-dev" }
 }
 
 variable "snapshot_tags" {
@@ -111,12 +111,12 @@ source "amazon-ebs" "githubrunner" {
 
   source_ami_filter {
     filters = {
-      name                = "al2023-ami-2023.*-kernel-6.*-x86_64"
+      name                = "ecs-optimized-fips-20240*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["137112412989"]
+    owners      = ["095360987008"]
   }
   ssh_username = "ec2-user"
   tags = merge(

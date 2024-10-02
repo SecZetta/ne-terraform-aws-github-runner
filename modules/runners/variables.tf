@@ -225,7 +225,7 @@ variable "runner_labels" {
 variable "runner_group_name" {
   description = "Name of the runner group."
   type        = string
-  default     = "Default"
+  #default     = "ne-govcloud-dev-runners"
 }
 
 variable "lambda_zip" {

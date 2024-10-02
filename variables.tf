@@ -19,7 +19,7 @@ variable "vpc_name" {
 variable "customer" {
   description = "Name of the 'customer' for action runners."
   type        = string
-  default     = "govcloud-dev-runner"
+  default     = "ghr"
 }
 
 variable "vpc_cidr" {
@@ -46,7 +46,7 @@ variable "tags" {
 variable "prefix" {
   description = "The prefix used for naming resources"
   type        = string
-  default     = "ne-govcloud-dev-runners"
+  default     = "ghr-gcdev"
 }
 
 variable "enable_organization_runners" {
@@ -82,13 +82,13 @@ variable "runner_extra_labels" {
 variable "runner_group_name" {
   description = "Name of the runner group."
   type        = string
-  default     = "ne-govcloud-dev-runners"
+  default     = "Default"
 }
 
 variable "scale_up_reserved_concurrent_executions" {
   description = "Amount of reserved concurrent executions for the scale-up lambda function. A value of 0 disables lambda from being triggered and -1 removes any concurrency limitations."
   type        = number
-  default     = 1
+  default     = -1
 }
 
 variable "webhook_lambda_zip" {
@@ -512,7 +512,7 @@ variable "instance_types" {
   description = "List of instance types for the action runner. Defaults are based on runner_os (al2023 for linux and Windows Server Core for win)."
   type        = list(string)
   #default     = ["m5.large", "c5.large"]
-  default     = ["m7i.medium"]
+  default     = ["m7i.large"]
 }
 
 variable "repository_white_list" {
@@ -717,7 +717,7 @@ variable "pool_config" {
 variable "aws_partition" {
   description = "(optiona) partition in the arn namespace to use if not 'aws'"
   type        = string
-  default     = "aws"
+  default     = "aws-us-gov"
 }
 
 variable "disable_runner_autoupdate" {

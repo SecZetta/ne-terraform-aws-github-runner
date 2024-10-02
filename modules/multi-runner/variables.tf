@@ -573,10 +573,14 @@ variable "workflow_job_queue_configuration" {
 variable "ssm_paths" {
   description = "The root path used in SSM to store configuration and secreets."
   type = object({
-    root    = optional(string, "github-action-runners")
-    app     = optional(string, "app")
-    runners = optional(string, "runners")
-    webhook = optional(string, "webhook")
+    #root    = optional(string, "github-action-runners")
+    #app     = optional(string, "app")
+    #runners = optional(string, "runners")
+    #webhook = optional(string, "webhook")
+    root    = optional(string, null)
+    app     = optional(string, null)
+    runners = optional(string, null)
+    webhook = optional(string, null)
   })
   default = {}
 }
