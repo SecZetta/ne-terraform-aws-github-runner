@@ -18,6 +18,12 @@ variable "region" {
   default     = "us-gov-west-1"
 }
 
+variable "ami_regions" {
+  description = "The ami regions to build the image in"
+  type        = list(string)
+  default     = ["us-gov-west-1"]
+}
+
 variable "availability_zone_names" {
   type    = list(string)
   default = ["us-gov-west-1a", "us-gov-west-1b"]
@@ -104,6 +110,7 @@ source "amazon-ebs" "githubrunner" {
   ami_name                                  = "github-runner-al2023-x86_64-${formatdate("YYYYMMDDhhmm", timestamp())}"
   instance_type                             = var.instance_type
   region                                    = var.region
+  ami_regions                               = var.ami_regions
   security_group_id                         = var.security_group_id
   subnet_id                                 = var.subnet_id
   associate_public_ip_address               = var.associate_public_ip_address
