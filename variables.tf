@@ -25,15 +25,15 @@ variable "customer" {
 variable "vpc_cidr" {
   description = "Cidr block for action runners."
   type        = string
-  default     = "10.110.0.0/16"
+  default     = "10.124.0.0/16"
 }
 
 variable "public_cidrs" {
   description = "Map of public cidrs that will be used for the github runners"
   type        = map(string)
   default     = {
-    us-gov-west-1a = "10.110.2.0/24"
-    us-gov-west-1b = "10.110.3.0/24"
+    us-gov-west-1a = "10.124.2.0/24"
+    us-gov-west-1b = "10.124.3.0/24"
    }
 }
 

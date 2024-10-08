@@ -20,19 +20,19 @@ variable "region" {
 
 variable "availability_zone_names" {
   type    = list(string)
-  default = ["us-west-1a", "us-west-1b"]
+  default = ["us-gov-west-1a", "us-gov-west-1b"]
 }
 
 variable "security_group_id" {
   description = "The ID of the security group Packer will associate with the builder to enable access"
   type        = string
-  default     = "sg-01a677b60a2c94a96"
+  default     = null
 }
 
 variable "subnet_id" {
   description = "If using VPC, the ID of the subnet, such as subnet-12345def, where Packer will launch the EC2 instance. This field is required if you are using an non-default VPC"
   type        = string
-  default     = "subnet-04b0fdf45d91e9d52"
+  default     = "subnet-097f71ae824076222"
 }
 
 variable "associate_public_ip_address" {
@@ -85,7 +85,7 @@ variable "custom_shell_commands" {
 variable "temporary_security_group_source_public_ip" {
   description = "When enabled, use public IP of the host (obtained from https://checkip.amazonaws.com) as CIDR block to be authorized access to the instance, when packer is creating a temporary security group. Note: If you specify `security_group_id` then this input is ignored."
   type        = bool
-  default     = false
+  default     = true
 }
 
 data "http" github_runner_release_json {
