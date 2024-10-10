@@ -243,7 +243,7 @@ variable "lambda_timeout_scale_down" {
 variable "scale_up_reserved_concurrent_executions" {
   description = "Amount of reserved concurrent executions for the scale-up lambda function. A value of 0 disables lambda from being triggered and -1 removes any concurrency limitations."
   type        = number
-  default     = 1
+  default     = -1
 }
 
 variable "lambda_scale_up_memory_size" {
@@ -693,15 +693,13 @@ variable "job_retry" {
   EOF
 
   type = object({
-    enable                                = optional(bool, false)
-    delay_in_seconds                      = optional(number, 300)
+    enable                                = optional(bool, true)
+    delay_in_seconds                      = optional(number, 15)
     delay_backoff                         = optional(number, 2)
     lambda_memory_size                    = optional(number, 256)
-    lambda_reserved_concurrent_executions = optional(number, 1)
-
-    lambda_timeout = optional(number, 30)
-
-    max_attempts = optional(number, 1)
+    lambda_reserved_concurrent_executions = optional(number, -1)
+    lambda_timeout                        = optional(number, 15)
+    max_attempts                          = optional(number, 30)
   })
   default = {}
 

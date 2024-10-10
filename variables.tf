@@ -88,7 +88,7 @@ variable "runner_group_name" {
 variable "scale_up_reserved_concurrent_executions" {
   description = "Amount of reserved concurrent executions for the scale-up lambda function. A value of 0 disables lambda from being triggered and -1 removes any concurrency limitations."
   type        = number
-  default     = 1
+  default     = -1
 }
 
 variable "webhook_lambda_zip" {
@@ -100,13 +100,13 @@ variable "webhook_lambda_zip" {
 variable "webhook_lambda_memory_size" {
   description = "Memory size limit in MB for webhook lambda in."
   type        = number
-  default     = 256
+  default     = 512
 }
 
 variable "webhook_lambda_timeout" {
   description = "Time out of the webhook lambda in seconds."
   type        = number
-  default     = 10
+  default     = 30
 }
 
 variable "runners_lambda_zip" {
@@ -233,7 +233,7 @@ variable "runner_run_as" {
 variable "runners_maximum_count" {
   description = "The maximum number of runners that will be created."
   type        = number
-  default     = 15
+  default     = -1
 }
 
 variable "kms_key_arn" {
@@ -495,7 +495,7 @@ variable "instance_target_capacity_type" {
 variable "instance_allocation_strategy" {
   description = "The allocation strategy for spot instances. AWS recommends using `price-capacity-optimized` however the AWS default is `lowest-price`."
   type        = string
-  default     = "lowest-price"
+  default     = "price-capacity-optimized"
   validation {
     condition     = contains(["lowest-price", "diversified", "capacity-optimized", "capacity-optimized-prioritized", "price-capacity-optimized"], var.instance_allocation_strategy)
     error_message = "The instance allocation strategy does not match the allowed values."
@@ -512,7 +512,7 @@ variable "instance_types" {
   description = "List of instance types for the action runner. Defaults are based on runner_os (al2023 for linux and Windows Server Core for win)."
   type        = list(string)
   #default     = ["m5.large", "c5.large"]
-  default     = ["m3.medium"]
+  default     = ["m7i.large"]
 }
 
 variable "repository_white_list" {
@@ -524,7 +524,7 @@ variable "repository_white_list" {
 variable "delay_webhook_event" {
   description = "The number of seconds the event accepted by the webhook is invisible on the queue before the scale up lambda will receive the event."
   type        = number
-  default     = 30
+  default     = 10
 }
 variable "job_queue_retention_in_seconds" {
   description = "The number of seconds the job is held in the queue before it is purged."
@@ -560,7 +560,7 @@ variable "runner_egress_rules" {
 variable "log_level" {
   description = "Logging level for lambda logging. Valid values are  'silly', 'trace', 'debug', 'info', 'warn', 'error', 'fatal'."
   type        = string
-  default     = "debug"
+  default     = "info"
   validation {
     condition = anytrue([
       var.log_level == "silly",
@@ -686,7 +686,7 @@ variable "pool_lambda_memory_size" {
 variable "pool_lambda_timeout" {
   description = "Time out for the pool lambda in seconds."
   type        = number
-  default     = 60
+  default     = 30
 }
 
 variable "pool_runner_owner" {
@@ -698,7 +698,7 @@ variable "pool_runner_owner" {
 variable "pool_lambda_reserved_concurrent_executions" {
   description = "Amount of reserved concurrent executions for the scale-up lambda function. A value of 0 disables lambda from being triggered and -1 removes any concurrency limitations."
   type        = number
-  default     = 1
+  default     = -1
 }
 
 variable "pool_config" {
@@ -708,7 +708,12 @@ variable "pool_config" {
     schedule_expression_timezone = optional(string)
     size                         = number
   }))
-  default = []
+
+  default = [{
+    size                         = 10
+    schedule_expression = "cron(0/3 * * * ? *)"
+    schedule_expression_timezone = "UTC"
+  }]
 }
 
 variable "aws_partition" {
@@ -761,7 +766,7 @@ variable "workflow_job_queue_configuration" {
 variable "enable_runner_binaries_syncer" {
   description = "Option to disable the lambda to sync GitHub runner distribution, useful when using a pre-build AMI."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "state_event_rule_binaries_syncer" {
@@ -797,7 +802,7 @@ variable "queue_encryption" {
 variable "enable_user_data_debug_logging_runner" {
   description = "Option to enable debug logging for user-data, this logs all secrets as well."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "ssm_paths" {
@@ -915,7 +920,7 @@ variable "instance_termination_watcher" {
 variable "runners_ebs_optimized" {
   description = "Enable EBS optimization for the runner instances."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "lambda_tags" {
@@ -943,12 +948,13 @@ variable "job_retry" {
   EOF
 
   type = object({
-    enable             = optional(bool, true)
-    delay_in_seconds   = optional(number, 180)
-    delay_backoff      = optional(number, 2)
-    lambda_memory_size = optional(number, 256)
-    lambda_timeout     = optional(number, 30)
-    max_attempts       = optional(number, 2)
+    enable                                = optional(bool, true)
+    delay_in_seconds                      = optional(number, 15)
+    delay_backoff                         = optional(number, 2)
+    lambda_memory_size                    = optional(number, 256)
+    lambda_reserved_concurrent_executions = optional(number, -1)
+    lambda_timeout                        = optional(number, 15)
+    max_attempts                          = optional(number, 30)
   })
   default = {}
 }

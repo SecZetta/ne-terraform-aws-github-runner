@@ -300,13 +300,8 @@ module "runners" {
 
   log_level = var.log_level
 
-  #pool_config                                = var.pool_config
-  #pool_config = [{
-  #  size                         = 5
-  #  schedule_expression = "cron(0/3 * * * *)"
-  #  schedule_expression_timezone = "UTC"
-  #}]
-
+  pool_config                                = var.pool_config
+  
   pool_lambda_memory_size                    = var.pool_lambda_memory_size
   pool_lambda_timeout                        = var.pool_lambda_timeout
   pool_runner_owner                          = var.pool_runner_owner
