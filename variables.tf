@@ -13,13 +13,13 @@ variable "aws_region" {
 variable "vpc_name" {
   description = "Name of the VPC for security groups of the action runners."
   type        = string
-  default     = "govcloud-runner-vpc"
+  default     = "ghrdev-runner-vpc"
 }
 
 variable "customer" {
   description = "Name of the 'customer' for action runners."
   type        = string
-  default     = "govcloud-runner"
+  default     = "ghrdev"
 }
 
 variable "vpc_cidr" {
@@ -46,7 +46,7 @@ variable "tags" {
 variable "prefix" {
   description = "The prefix used for naming resources"
   type        = string
-  default     = "ne-govcloud-runners"
+  default     = "ghrdev"
 }
 
 variable "enable_organization_runners" {
@@ -82,7 +82,7 @@ variable "runner_extra_labels" {
 variable "runner_group_name" {
   description = "Name of the runner group."
   type        = string
-  default     = "ne-govcloud-runners"
+  default     = "Default"
 }
 
 variable "scale_up_reserved_concurrent_executions" {
@@ -593,10 +593,7 @@ variable "matcher_config_parameter_store_tier" {
 variable "runner_ec2_tags" {
   description = "Map of tags that will be added to the launch template instance tag specifications."
   type        = map(string)
-  #default     = {
-  #  "name"    = "ne-app-runners"
-  #}
-default     = {}
+  default     = {}
 }
 
 variable "runner_metadata_options" {

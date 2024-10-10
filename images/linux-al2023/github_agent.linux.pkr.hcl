@@ -26,13 +26,13 @@ variable "availability_zone_names" {
 variable "security_group_id" {
   description = "The ID of the security group Packer will associate with the builder to enable access"
   type        = string
-  default     = "sg-088583f13a0bb5a8e"
+  default     = null
 }
 
 variable "subnet_id" {
   description = "If using VPC, the ID of the subnet, such as subnet-12345def, where Packer will launch the EC2 instance. This field is required if you are using an non-default VPC"
   type        = string
-  default     = "subnet-07123a4d282b85607"
+  default     = "subnet-0a942708c1903b0cf"
 }
 
 variable "associate_public_ip_address" {
@@ -44,12 +44,12 @@ variable "associate_public_ip_address" {
 variable "instance_type" {
   description = "The instance type Packer will use for the builder"
   type        = string
-  default     = "m3.medium"
+  default     = "m7i.large"
 }
 
 variable "root_volume_size_gb" {
   type    = number
-  default = 8
+  default = 30
 }
 
 variable "ebs_delete_on_termination" {
@@ -85,7 +85,7 @@ variable "custom_shell_commands" {
 variable "temporary_security_group_source_public_ip" {
   description = "When enabled, use public IP of the host (obtained from https://checkip.amazonaws.com) as CIDR block to be authorized access to the instance, when packer is creating a temporary security group. Note: If you specify `security_group_id` then this input is ignored."
   type        = bool
-  default     = false
+  default     = true
 }
 
 data "http" github_runner_release_json {
@@ -111,7 +111,7 @@ source "amazon-ebs" "githubrunner" {
 
   source_ami_filter {
     filters = {
-      name                = "al2023-ami-2023.*-kernel-6.*-x86_64"
+      name                = "al2023-ami-2023.*.2024*-kernel-6.1-x86_64"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
