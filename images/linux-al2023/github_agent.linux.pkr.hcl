@@ -118,12 +118,12 @@ source "amazon-ebs" "githubrunner" {
 
   source_ami_filter {
     filters = {
-      name                = "ecs-optimized-fips-20240*"
+      name                = "al2023-ami-2023.*.2024*-kernel-6.1-x86_64"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["095360987008"]
+    owners      = ["045324592363"]
   }
   ssh_username = "ec2-user"
   tags = merge(
