@@ -64,7 +64,7 @@ variable "scale_down_schedule_expression" {
 variable "minimum_running_time_in_minutes" {
   description = "The time an ec2 action runner should be running at minimum before terminated, if not busy."
   type        = number
-  default     = 5
+  default     = 10
 }
 
 variable "runner_boot_time_in_minutes" {
@@ -593,10 +593,7 @@ variable "matcher_config_parameter_store_tier" {
 variable "runner_ec2_tags" {
   description = "Map of tags that will be added to the launch template instance tag specifications."
   type        = map(string)
-  #default     = {
-  #  "name"    = "ne-app-runners"
-  #}
-default     = {}
+  default     = {}
 }
 
 variable "runner_metadata_options" {
@@ -619,7 +616,7 @@ variable "enable_ephemeral_runners" {
 variable "enable_job_queued_check" {
   description = "Only scale if the job event received by the scale up lambda is in the queued state. By default enabled for non ephemeral runners and disabled for ephemeral. Set this variable to overwrite the default behavior."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "enable_managed_runner_security_group" {
@@ -711,7 +708,13 @@ variable "pool_config" {
     schedule_expression_timezone = optional(string)
     size                         = number
   }))
+
   default = []
+#  default = [{
+#    size                         = 10
+#    schedule_expression = "cron(0/3 * * * ? *)"
+#    schedule_expression_timezone = "UTC"
+#  }]
 }
 
 variable "aws_partition" {
@@ -946,12 +949,13 @@ variable "job_retry" {
   EOF
 
   type = object({
-    enable             = optional(bool, true)
-    delay_in_seconds   = optional(number, 15)
-    delay_backoff      = optional(number, 2)
-    lambda_memory_size = optional(number, 512)
-    lambda_timeout     = optional(number, 10)
-    max_attempts       = optional(number, 5)
+    enable                                = optional(bool, true)
+    delay_in_seconds                      = optional(number, 15)
+    delay_backoff                         = optional(number, 2)
+    lambda_memory_size                    = optional(number, 256)
+    lambda_reserved_concurrent_executions = optional(number, -1)
+    lambda_timeout                        = optional(number, 15)
+    max_attempts                          = optional(number, 30)
   })
   default = {}
 }

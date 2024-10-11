@@ -163,7 +163,6 @@ data "aws_iam_policy_document" "scheduler_assume" {
       type        = "Service"
       identifiers = ["scheduler.amazonaws.com"]
     }
-
     condition {
       test     = "StringEquals"
       variable = "aws:SourceArn"

@@ -225,7 +225,7 @@ variable "runner_labels" {
 variable "runner_group_name" {
   description = "Name of the runner group."
   type        = string
-  #default     = "ne-govcloud-dev-runners"
+  default     = "Default"
 }
 
 variable "lambda_zip" {
@@ -693,15 +693,13 @@ variable "job_retry" {
   EOF
 
   type = object({
-    enable                                = optional(bool, false)
-    delay_in_seconds                      = optional(number, 300)
+    enable                                = optional(bool, true)
+    delay_in_seconds                      = optional(number, 15)
     delay_backoff                         = optional(number, 2)
     lambda_memory_size                    = optional(number, 256)
-    lambda_reserved_concurrent_executions = optional(number, 1)
-
-    lambda_timeout = optional(number, 30)
-
-    max_attempts = optional(number, 1)
+    lambda_reserved_concurrent_executions = optional(number, -1)
+    lambda_timeout                        = optional(number, 15)
+    max_attempts                          = optional(number, 30)
   })
   default = {}
 
