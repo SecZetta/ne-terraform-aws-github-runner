@@ -34,7 +34,7 @@ variable "lambda" {
     environment_variables     = optional(map(string), {})
     handler                   = string
     lambda_tags               = optional(map(string), {})
-    log_level                 = optional(string, "info")
+    log_level                 = optional(string, "debug")
     logging_kms_key_id        = optional(string, null)
     logging_retention_in_days = optional(number, 180)
     memory_size               = optional(number, 256)
@@ -48,7 +48,7 @@ variable "lambda" {
     role_path                 = optional(string, null)
     role_permissions_boundary = optional(string, null)
     runtime                   = optional(string, "nodejs20.x")
-    s3_bucket                 = optional(string, null)
+    s3_bucket                 = optional(string, "github-runners-lambdas")
     s3_key                    = optional(string, null)
     s3_object_version         = optional(string, null)
     security_group_ids        = optional(list(string), [])

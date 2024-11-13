@@ -24,7 +24,7 @@ variable "distribution_bucket_name" {
 variable "s3_logging_bucket" {
   description = "Bucket for action runner distribution bucket access logging."
   type        = string
-  default     = null
+  default     = "runnerapp-lambda-logs"
 
   # Make sure the bucket name only contains legal characters
   validation {
@@ -36,7 +36,7 @@ variable "s3_logging_bucket" {
 variable "s3_logging_bucket_prefix" {
   description = "Bucket prefix for action runner distribution bucket access logging."
   type        = string
-  default     = null
+  default     = "runnerdist:"
 
   # Make sure the bucket prefix only contains legal characters
   validation {
@@ -131,13 +131,13 @@ variable "logging_kms_key_id" {
 variable "lambda_s3_bucket" {
   description = "S3 bucket from which to specify lambda functions. This is an alternative to providing local files directly."
   type        = string
-  default     = null
+  default     = "github-runners-lambdas"
 }
 
 variable "syncer_lambda_s3_key" {
   description = "S3 key for syncer lambda function. Required if using S3 bucket to specify lambdas."
   type        = string
-  default     = null
+  default     = "runner-binaries-syncer.zip"
 }
 
 variable "syncer_lambda_s3_object_version" {

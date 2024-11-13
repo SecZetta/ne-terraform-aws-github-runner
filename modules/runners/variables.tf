@@ -116,7 +116,7 @@ variable "instance_types" {
 variable "ami_filter" {
   description = "Map of lists used to create the AMI filter for the action runner AMI."
   type        = map(list(string))
-  default     = { state = ["available"] }
+  default     = { name = ["github-runner-al2023-x86_64-2024*"], state = ["available"] }
   validation {
     # check the availability of the AMI
     condition     = contains(keys(var.ami_filter), "state")
@@ -127,7 +127,7 @@ variable "ami_filter" {
 variable "ami_owners" {
   description = "The list of owners used to select the AMI of action runner instances."
   type        = list(string)
-  default     = ["amazon"]
+  default     = ["095360571044"]
 }
 
 variable "ami_id_ssm_parameter_name" {
@@ -145,7 +145,7 @@ variable "ami_kms_key_arn" {
 variable "enable_userdata" {
   description = "Should the userdata script be enabled for the runner. Set this to false if you are using your own prebuilt AMI"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "userdata_template" {
@@ -243,7 +243,7 @@ variable "lambda_timeout_scale_down" {
 variable "scale_up_reserved_concurrent_executions" {
   description = "Amount of reserved concurrent executions for the scale-up lambda function. A value of 0 disables lambda from being triggered and -1 removes any concurrency limitations."
   type        = number
-  default     = 1
+  default     = -1
 }
 
 variable "lambda_scale_up_memory_size" {
@@ -291,7 +291,7 @@ variable "runner_run_as" {
 variable "runners_maximum_count" {
   description = "The maximum number of runners that will be created. Setting the variable to `-1` desiables the maximum check."
   type        = number
-  default     = 3
+  default     = -1
 }
 
 variable "runner_architecture" {
@@ -693,15 +693,13 @@ variable "job_retry" {
   EOF
 
   type = object({
-    enable                                = optional(bool, false)
-    delay_in_seconds                      = optional(number, 300)
+    enable                                = optional(bool, true)
+    delay_in_seconds                      = optional(number, 15)
     delay_backoff                         = optional(number, 2)
     lambda_memory_size                    = optional(number, 256)
-    lambda_reserved_concurrent_executions = optional(number, 1)
-
-    lambda_timeout = optional(number, 30)
-
-    max_attempts = optional(number, 1)
+    lambda_reserved_concurrent_executions = optional(number, -1)
+    lambda_timeout                        = optional(number, 15)
+    max_attempts                          = optional(number, 30)
   })
   default = {}
 

@@ -1,7 +1,7 @@
 packer {
   required_plugins {
     amazon = {
-      version = ">= 0.0.2"
+      version = ">= 1.2.8"
       source  = "github.com/hashicorp/amazon"
     }
   }
@@ -9,13 +9,18 @@ packer {
 
 variable "runner_version" {
   description = "The version (no v prefix) of the runner software to install https://github.com/actions/runner/releases. The latest release will be fetched from GitHub if not provided."
-  default     = null
+  default     = "2.319.1"
 }
 
 variable "region" {
   description = "The region to build the image in"
   type        = string
-  default     = "eu-west-1"
+  default     = "us-gov-west-1"
+}
+
+variable "availability_zone_names" {
+  type    = list(string)
+  default = ["us-gov-west-1a", "us-gov-west-1b"]
 }
 
 variable "security_group_id" {
@@ -27,24 +32,24 @@ variable "security_group_id" {
 variable "subnet_id" {
   description = "If using VPC, the ID of the subnet, such as subnet-12345def, where Packer will launch the EC2 instance. This field is required if you are using an non-default VPC"
   type        = string
-  default     = null
+  default     = "subnet-060a9abced2a82b62"
 }
 
 variable "associate_public_ip_address" {
   description = "If using a non-default VPC, there is no public IP address assigned to the EC2 instance. If you specified a public subnet, you probably want to set this to true. Otherwise the EC2 instance won't have access to the internet"
-  type        = string
-  default     = null
+  type        = bool
+  default     = true
 }
 
 variable "instance_type" {
   description = "The instance type Packer will use for the builder"
   type        = string
-  default     = "m3.medium"
+  default     = "m7i.large"
 }
 
 variable "root_volume_size_gb" {
   type    = number
-  default = 8
+  default = 30
 }
 
 variable "ebs_delete_on_termination" {
@@ -62,7 +67,7 @@ variable "global_tags" {
 variable "ami_tags" {
   description = "Tags to apply to the AMI"
   type        = map(string)
-  default     = {}
+  default     = { name = "ne-govcloud-prod" }
 }
 
 variable "snapshot_tags" {
@@ -80,7 +85,7 @@ variable "custom_shell_commands" {
 variable "temporary_security_group_source_public_ip" {
   description = "When enabled, use public IP of the host (obtained from https://checkip.amazonaws.com) as CIDR block to be authorized access to the instance, when packer is creating a temporary security group. Note: If you specify `security_group_id` then this input is ignored."
   type        = bool
-  default     = false
+  default     = true
 }
 
 data "http" github_runner_release_json {
@@ -106,12 +111,12 @@ source "amazon-ebs" "githubrunner" {
 
   source_ami_filter {
     filters = {
-      name                = "al2023-ami-2023.*-kernel-6.*-x86_64"
+      name                = "al2023-ami-2023.*.2024*-kernel-6.1-x86_64"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["137112412989"]
+    owners      = ["045324592363"]
   }
   ssh_username = "ec2-user"
   tags = merge(
