@@ -25,12 +25,12 @@
 ### Backend ###
 terraform {
   backend "s3" {
-    bucket         = "sailpoint-ne-govdev-runners-tf-state"
+    bucket         = "sailpoint-ne-govprod-runners-tf-state"
     key            = "main.tfstate"
     region         = "us-gov-west-1"
     dynamodb_table = "tf-lock"
     #shared_credentials_files = "~/.aws/credentials"
-    profile        = "nerm_fedramp_gov_dev"
+    profile        = "nerm_fedramp_gov_prod"
   }
 
   required_providers {
