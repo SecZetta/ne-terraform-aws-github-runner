@@ -44,7 +44,7 @@ variable "associate_public_ip_address" {
 variable "instance_type" {
   description = "The instance type Packer will use for the builder"
   type        = string
-  default     = "m7i.large"
+  default     = "t3.medium"
 }
 
 variable "root_volume_size_gb" {
@@ -111,7 +111,7 @@ source "amazon-ebs" "githubrunner" {
 
   source_ami_filter {
     filters = {
-      name                = "al2023-ami-2023.*.2024*-kernel-6.1-x86_64"
+      name                = "al2023-ami-2023.*.2025*-kernel-6.1-x86_64"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
