@@ -29,7 +29,6 @@ terraform {
     key            = "main.tfstate"
     region         = "us-gov-west-1"
     dynamodb_table = "tf-lock"
-    #shared_credentials_files = "~/.aws/credentials"
     profile        = "nerm_fedramp_gov_prod"
   }
 
@@ -65,8 +64,7 @@ terraform {
 ### Providers ###
 provider "aws" {
   region     = var.aws_region
-  #shared_credentials_files = ["~/.aws/credentials"]
-  profile                 = var.aws_cli_profile
+  profile                   = "nerm_fedramp_gov_prod"
 }
 
 provider "random" {
