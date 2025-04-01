@@ -334,7 +334,7 @@ variable "block_device_mappings" {
 variable "ami_filter" {
   description = "Map of lists used to create the AMI filter for the action runner AMI."
   type        = map(list(string))
-  default     = { name = ["github-runner-al2023-x86_64-2024*"], state = ["available"] }
+  default     = { name = ["github-runner-al2023-x86_64-2025*"], state = ["available"] }
   validation {
     # check the availability of the AMI
     condition     = contains(keys(var.ami_filter), "state")
