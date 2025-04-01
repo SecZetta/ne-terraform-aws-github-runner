@@ -363,7 +363,7 @@ variable "ami_kms_key_arn" {
 variable "lambda_s3_bucket" {
   description = "S3 bucket from which to specify lambda functions. This is an alternative to providing local files directly."
   type        = string
-  default     = "sailpoint-ne-ghr-govprod-lambdas"
+  default     = "sailpoint-ne-govprod-ghr-lambdas"
 }
 
 variable "syncer_lambda_s3_key" {
