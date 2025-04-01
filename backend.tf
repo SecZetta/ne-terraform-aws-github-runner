@@ -25,7 +25,7 @@
 ### Backend ###
 terraform {
   backend "s3" {
-    bucket         = "sailpoint-ne-govdev-runners-tf-state"
+    bucket         = "sailpoint-ne-runners-govprod-tf-state"
     key            = "main.tfstate"
     region         = "us-gov-west-1"
     dynamodb_table = "tf-lock"
