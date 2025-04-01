@@ -63,8 +63,8 @@ terraform {
 
 ### Providers ###
 provider "aws" {
-  region     = var.aws_region
-  profile                   = "nerm_fedramp_gov_prod"
+  region     = "us-gov-west-1"
+  profile    = "nerm_fedramp_gov_prod"
 }
 
 provider "random" {
