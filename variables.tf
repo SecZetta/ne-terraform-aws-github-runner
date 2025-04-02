@@ -511,8 +511,7 @@ variable "instance_max_spot_price" {
 variable "instance_types" {
   description = "List of instance types for the action runner. Defaults are based on runner_os (al2023 for linux and Windows Server Core for win)."
   type        = list(string)
-  #default     = ["m5.large", "c5.large"]
-  default     = ["m7i.large"]
+  default     = ["t3.medium"]
 }
 
 variable "repository_white_list" {

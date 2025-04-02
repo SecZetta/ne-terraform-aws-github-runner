@@ -70,23 +70,5 @@ provider "aws" {
 provider "random" {
 }
 
-#provider "mongodbatlas" {
-#  public_key  = data.aws_ssm_parameter.mongo_public_key.value
-#  private_key = data.aws_ssm_parameter.mongo_private_key.value
-#}
-
-#provider "azuread" {
-#}
-
-#provider "datadog" {
-#  api_key = data.aws_ssm_parameter.datadog_api_key.value
-#  app_key = data.aws_ssm_parameter.datadog_app_key.value
-#}
-
 provider "null" {
 }
-
-#provider "cloudflare" {
-#  email   = data.aws_ssm_parameter.cloudflare_email.value
-#  api_key = data.aws_ssm_parameter.cloudflare_api_key.value
-#}
