@@ -113,15 +113,15 @@ resource "aws_sqs_queue" "queued_builds_dlq" {
 }
 
 data "aws_ssm_parameter" "key_base64" {
-  name = "/Terraform/runnerapp/github_app_key_base64"
+  name = "/Terraform/runnerapp/dev/github_app_key_base64"
 }
 
 data "aws_ssm_parameter" "app_id" {
-  name = "/Terraform/runnerapp/github_app_id"
+  name = "/Terraform/runnerapp/dev/github_app_id"
 }
 
 data "aws_ssm_parameter" "webhook_secret" {
-  name = "/Terraform/runnerapp/webhook_secret"
+  name = "/Terraform/runnerapp/dev/webhook_secret"
 }
 
 module "ssm" {

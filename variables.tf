@@ -334,7 +334,7 @@ variable "block_device_mappings" {
 variable "ami_filter" {
   description = "Map of lists used to create the AMI filter for the action runner AMI."
   type        = map(list(string))
-  default     = { name = ["github-runner-al2023-x86_64-2024*"], state = ["available"] }
+  default     = { name = ["github-runner-al2023-x86_64-2025*"], state = ["available"] }
   validation {
     # check the availability of the AMI
     condition     = contains(keys(var.ami_filter), "state")
@@ -511,8 +511,7 @@ variable "instance_max_spot_price" {
 variable "instance_types" {
   description = "List of instance types for the action runner. Defaults are based on runner_os (al2023 for linux and Windows Server Core for win)."
   type        = list(string)
-  #default     = ["m5.large", "c5.large"]
-  default     = ["m7i.large"]
+  default     = ["t3.medium"]
 }
 
 variable "repository_white_list" {
@@ -524,7 +523,7 @@ variable "repository_white_list" {
 variable "delay_webhook_event" {
   description = "The number of seconds the event accepted by the webhook is invisible on the queue before the scale up lambda will receive the event."
   type        = number
-  default     = 10
+  default     = 5
 }
 variable "job_queue_retention_in_seconds" {
   description = "The number of seconds the job is held in the queue before it is purged."
@@ -758,7 +757,7 @@ variable "workflow_job_queue_configuration" {
     message_retention_seconds  = number
   })
   default = {
-    "delay_seconds" : 15,
+    "delay_seconds" : 10,
     "visibility_timeout_seconds" : 180,
     "message_retention_seconds" : 300
   }
@@ -812,7 +811,7 @@ variable "ssm_paths" {
     app        = optional(string, "app")
     runners    = optional(string, "runners")
     webhook    = optional(string, "webhook")
-    use_prefix = optional(bool, true)
+    use_prefix = optional(bool, false)
   })
   default = {}
 }

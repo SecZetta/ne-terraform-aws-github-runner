@@ -9,7 +9,7 @@ packer {
 
 variable "runner_version" {
   description = "The version (no v prefix) of the runner software to install https://github.com/actions/runner/releases. The latest release will be fetched from GitHub if not provided."
-  default     = "2.321.0"
+  default     = "2.323.0"
 }
 
 variable "region" {
@@ -44,7 +44,7 @@ variable "associate_public_ip_address" {
 variable "instance_type" {
   description = "The instance type Packer will use for the builder"
   type        = string
-  default     = "m7i.large"
+  default     = "t3.medium"
 }
 
 variable "root_volume_size_gb" {
@@ -111,7 +111,7 @@ source "amazon-ebs" "githubrunner" {
 
   source_ami_filter {
     filters = {
-      name                = "al2023-ami-2023.*.2024*-kernel-6.1-x86_64"
+      name                = "al2023-ami-2023.*.2025*-kernel-6.1-x86_64"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
