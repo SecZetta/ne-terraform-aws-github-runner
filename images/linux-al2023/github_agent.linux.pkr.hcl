@@ -9,7 +9,7 @@ packer {
 
 variable "runner_version" {
   description = "The version (no v prefix) of the runner software to install https://github.com/actions/runner/releases. The latest release will be fetched from GitHub if not provided."
-  default     = "2.319.1"
+  default     = "2.326.0"
 }
 
 variable "region" {
@@ -32,7 +32,7 @@ variable "security_group_id" {
 variable "subnet_id" {
   description = "If using VPC, the ID of the subnet, such as subnet-12345def, where Packer will launch the EC2 instance. This field is required if you are using an non-default VPC"
   type        = string
-  default     = "subnet-0a942708c1903b0cf"
+  default     = "subnet-0a21c5f08f8e5422e"
 }
 
 variable "associate_public_ip_address" {
@@ -44,7 +44,7 @@ variable "associate_public_ip_address" {
 variable "instance_type" {
   description = "The instance type Packer will use for the builder"
   type        = string
-  default     = "m7i.large"
+  default     = "t3.medium"
 }
 
 variable "root_volume_size_gb" {
@@ -111,7 +111,7 @@ source "amazon-ebs" "githubrunner" {
 
   source_ami_filter {
     filters = {
-      name                = "al2023-ami-2023.*.2024*-kernel-6.1-x86_64"
+      name                = "al2023-ami-2023.*.2025*-kernel-6.1-x86_64"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }

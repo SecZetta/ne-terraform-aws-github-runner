@@ -25,15 +25,15 @@ variable "customer" {
 variable "vpc_cidr" {
   description = "Cidr block for action runners."
   type        = string
-  default     = "10.100.0.0/16"
+  default     = "10.101.0.0/16"
 }
 
 variable "public_cidrs" {
   description = "Map of public cidrs that will be used for the github runners"
   type        = map(string)
   default     = {
-    us-east-1a = "10.100.2.0/24"
-    us-east-1b = "10.100.4.0/24"
+    us-east-1a = "10.101.2.0/24"
+    us-east-1b = "10.101.3.0/24"
   }
 }
 
@@ -334,7 +334,7 @@ variable "block_device_mappings" {
 variable "ami_filter" {
   description = "Map of lists used to create the AMI filter for the action runner AMI."
   type        = map(list(string))
-  default     = { name = ["github-runner-al2023-x86_64-2024*"], state = ["available"] }
+  default     = { name = ["github-runner-al2023-x86_64-2025*"], state = ["available"] }
   validation {
     # check the availability of the AMI
     condition     = contains(keys(var.ami_filter), "state")

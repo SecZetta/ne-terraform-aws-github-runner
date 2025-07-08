@@ -303,7 +303,7 @@ module "runners" {
   #pool_config                                = var.pool_config
   #pool_config = [{
   #  size                         = 5
-  #  schedule_expression = "cron(0/3 * * * *)"
+  #  schedule_expression = "cron(* 1/20 * * ?)"
   #  schedule_expression_timezone = "UTC"
   #}]
 
