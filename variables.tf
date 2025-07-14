@@ -615,7 +615,7 @@ variable "enable_ephemeral_runners" {
 variable "enable_job_queued_check" {
   description = "Only scale if the job event received by the scale up lambda is in the queued state. By default enabled for non ephemeral runners and disabled for ephemeral. Set this variable to overwrite the default behavior."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "enable_managed_runner_security_group" {
